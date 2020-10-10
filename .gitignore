@@ -4,3 +4,4 @@ DRAFT*
 *.wt
 */*/mongodb/*
 */*/spark/fs_sample/*
+TEST*
