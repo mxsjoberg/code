@@ -10,9 +10,8 @@ sc = SparkContext('local', 'pyspark')
 print(sc.version)
 # 2.1.2
 
-# NOTE: large outputs
-#
-# > python apache-spark.py > apache-spark.out
+# NOTE: create output file for large outputs
+# $ python apache-spark.py > apache-spark.out
 
 # creating RDD
 fs = sc.textFile("spark/u.user")
