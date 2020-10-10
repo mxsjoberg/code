@@ -8,9 +8,11 @@ class Money (object):
 
 # create a new instance of class
 money = Money(220, 'EUR')
-money.amount, money.currency        # (220, 'EUR')
+money.amount, money.currency
+# (220, 'EUR')
 
-print(money)                        # 220 EUR
+print(money)
+# 220 EUR
 
 # subclasses
 class VirtualMoney (Money):
@@ -24,10 +26,5 @@ virtual_money = VirtualMoney('2018-12-31')
 virtual_money.amount = 20
 virtual_money.currency = 'DIS'
 
-print(virtual_money)                # 20 DIS (use before 2018-12-31)
-
-'''
-Michael Sjoeberg
-2018-11-05
-https://github.com/michaelsjoeberg/python-playground/blob/master/basics/classes.py
-'''
+print(virtual_money)
+# 20 DIS (use before 2018-12-31)

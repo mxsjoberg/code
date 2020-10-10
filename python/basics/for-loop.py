@@ -19,9 +19,3 @@ for value in dict.values():
 
 for key, value in dict.items():
     print (key, value)              # ('Alpha', 1) ('Beta', 2)
-
-'''
-Michael Sjoeberg
-2018-11-05
-https://github.com/michaelsjoeberg/python-playground/blob/master/basics/for-loop.py
-'''

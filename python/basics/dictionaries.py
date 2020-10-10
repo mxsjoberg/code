@@ -22,10 +22,5 @@ del dict['Cole']        # {'Adam': ['adam@email.com', 2445055], 'Bard': 'bard@an
 
 # create dictionary from a list of tuples
 dict_list_tuples = dict([(1, "x"), (2, "y"), (3, "z")])
-dict_list_tuples        # {1: 'x', 2: 'y', 3: 'z'}
-
-'''
-Michael Sjoeberg
-2018-11-05
-https://github.com/michaelsjoeberg/python-playground/blob/master/basics/dictionaries.py
-'''
+dict_list_tuples
+# {1: 'x', 2: 'y', 3: 'z'}

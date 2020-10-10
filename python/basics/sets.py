@@ -28,9 +28,3 @@ set_c = {1, 2, 3, 4, 5}
 set_a < set_b           # False                     (Strict subset)
 set_a <= set_b          # True                      (Subset)
 set_c > set_a           # True                      (Strict superset)
-
-'''
-Michael Sjoeberg
-2018-11-05
-https://github.com/michaelsjoeberg/python-playground/blob/master/basics/sets.py
-'''
