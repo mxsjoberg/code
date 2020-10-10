@@ -1,6 +1,6 @@
 .DS_Store
-*/DRAFT*
+DRAFT*
 *.pyc
 *.wt
-data-science/mongodb/*
-data-science/spark/*
+*/*/mongodb/*
+*/*/spark/*
