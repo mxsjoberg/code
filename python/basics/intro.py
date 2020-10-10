@@ -7,4 +7,4 @@ def main():
 if (__name__ == "__main__"):
     main()
 
-# run: $ python <filename>.py
+# run from command-line: $ python <filename>.py
