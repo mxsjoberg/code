@@ -3,4 +3,4 @@ DRAFT*
 *.pyc
 *.wt
 */*/mongodb/*
-*/*/spark/*
+*/*/spark/fs_sample/*
