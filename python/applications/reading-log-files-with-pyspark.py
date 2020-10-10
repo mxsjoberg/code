@@ -17,9 +17,3 @@ print(('Lines with \'a\': {}').format(count))
 
 # stop
 sc.stop()
-
-'''
-Michael Sjoeberg
-2020-05-13
-https://github.com/michaelsjoeberg/python-playground/blob/master/applications/reading-log-files-with-pyspark.py
-'''

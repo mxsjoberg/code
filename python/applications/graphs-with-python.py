@@ -137,9 +137,3 @@ print(graph)
 #         Vertex ('B'): Edge (Vertex ('C'), Vertex ('B'))
 #     }
 # }
-
-'''
-Michael Sjoeberg
-2019-09-10
-https://github.com/michaelsjoeberg/python-playground/blob/master/applications/graphs-with-python.py
-'''

@@ -44,7 +44,7 @@ class Particle:
 
             self.velocity[i] = weight * self.velocity[i] + velocity_cognative + velocity_social
 
-        #print(self.velocity)
+        # print(self.velocity)
 
     # update particle position (based on velocity)
     def update_position(self, bounds=None):
@@ -57,7 +57,7 @@ class Particle:
                 # minimum position
                 if (self.position[i] < bounds[i][0]): self.position[i] = bounds[i][0]
 
-        #print(self.position)
+        # print(self.position)
 
 # ---------------------------------------------------------------------------
 #   Particle Swarm Optimisation
@@ -99,7 +99,7 @@ class PSO():
         # result
         result = (round(self.error_best, 2), [])
         for i in range(0, self.dimensions):
-            #print('x_{} ='.format(i), round(self.position_best[i], 2))
+            # print('x_{} ='.format(i), round(self.position_best[i], 2))
             result[1].append(round(self.position_best[i], 2))
 
         return result
@@ -115,9 +115,3 @@ print(PSO(function, [5, 5], bounds=None, num_particles=15, max_iterations=50).op
 def function(x): return x[0] ** 5 - 3 * x[0] ** 4 + 5
 print(PSO(function, [5], bounds=[(0, 4)], num_particles=15, max_iterations=50).optimisation())
 # (-14.91, [2.4])
-
-'''
-Michael Sjoeberg
-2020-04-15
-https://github.com/michaelsjoeberg/python-playground/blob/master/applications/particle-swarm-optimisation.py
-'''

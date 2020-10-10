@@ -16,9 +16,3 @@ if __name__ == '__main__': MRWordFrequencyCount.run()
 # "words"   234
 # "lines"   35
 # "chars"   1057
-
-'''
-Michael Sjoeberg
-2020-04-09
-https://github.com/michaelsjoeberg/python-playground/blob/master/applications/word-counting-with-mrjob.py
-'''

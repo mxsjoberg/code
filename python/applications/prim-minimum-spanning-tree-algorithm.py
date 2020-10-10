@@ -86,9 +86,3 @@ g.prim_mst()
 # 1 - 2    3
 # 0 - 3    6
 # 1 - 4    5
-
-'''
-Michael Sjoeberg
-2020-04-10
-https://github.com/michaelsjoeberg/python-playground/blob/master/applications/prim-minimum-spanning-tree-algorithm.py
-'''

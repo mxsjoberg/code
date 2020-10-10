@@ -127,9 +127,3 @@ graph = Graph([
 
 print(graph.dijkstra('a', 'f'))
 # deque(['a', 'c', 'f'])
-
-'''
-Michael Sjoeberg
-2020-04-10
-https://github.com/michaelsjoeberg/python-playground/blob/master/applications/dijkstra-shortest-path-algorithm.py
-'''

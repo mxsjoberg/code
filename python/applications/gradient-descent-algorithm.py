@@ -16,7 +16,7 @@ def gradient_descent(x, y, theta, alpha, m, num_iterations):
         hypothesis = np.dot(x, theta)
         loss = hypothesis - y
         cost = np.sum(loss ** 2) / (2 * m)
-        
+
         # print
         print("Iteration: %d, Cost: %f" % (i, cost))
         
@@ -51,7 +51,7 @@ alpha = 0.0005
 theta = np.ones(n)
 theta = gradient_descent(x, y, theta, alpha, m, num_iterations)
 
-#print
+# print
 print(theta)
 
 # Iteration: 0, Cost: 3440.881818
@@ -62,9 +62,3 @@ print(theta)
 # Iteration: 9998, Cost: 429.382775
 # Iteration: 9999, Cost: 429.382775
 # [39.80223561 39.80223561]
-
-'''
-Michael Sjoeberg
-2020-04-10
-https://github.com/michaelsjoeberg/python-playground/blob/master/applications/gradient-descent-algorithm.py
-'''
