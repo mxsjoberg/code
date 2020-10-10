@@ -35,15 +35,15 @@ classifier = KNeighborsClassifier(n_neighbors=3, metric='euclidean')
 classifier.fit(X_train, Y_train)
 
 # evaluate
-#Y_prediction = classifier.predict(X_test)
-#print(confusion_matrix(Y_test, Y_prediction))
-#print(classification_report(Y_test, Y_prediction))
-#print(accuracy_score(Y_test, Y_prediction))
+# Y_prediction = classifier.predict(X_test)
+# print(confusion_matrix(Y_test, Y_prediction))
+# print(classification_report(Y_test, Y_prediction))
+# print(accuracy_score(Y_test, Y_prediction))
 
 # sample classification
 # -----------------------------------------
 Y_prediction = classifier.predict(S_test)
-#print(Y_prediction)
+# print(Y_prediction)
 
 # prettytable
 # -----------------------------------------------------------
@@ -66,9 +66,3 @@ print(pt)
 # | [5.3043 2.5    1.6667 2.25  ] |   0   |
 # | [4.8696 2.25   7.     0.    ] |   2   |
 # +-------------------------------+-------+
-
-'''
-Michael Sjoeberg
-2020-04-10
-https://github.com/michaelsjoeberg/python-playground/blob/master/machine-learning/k-nearest-neighbors-classification.py
-'''

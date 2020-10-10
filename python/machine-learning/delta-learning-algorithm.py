@@ -25,7 +25,7 @@ X = [[1, 0, 2],
 # classes
 t = [1, 1, 1, 0, 0, 0]
 
-# Heaviside function (https://en.wikipedia.org/wiki/Heaviside_step_function)
+# heaviside function (https://en.wikipedia.org/wiki/Heaviside_step_function)
 # -----------------------------------------------------------
 def transfer_function(w, x):
     wx = np.dot(w, x)
@@ -92,9 +92,3 @@ print(pt)
 # |     11    | [1. 3. 1.]    | [ 1 -2 -1] | 0         | 0 | [1. 3. 1.]    |
 # |     12    | [1. 3. 1.]    | [ 1 -3 -2] | 0         | 0 | [1. 3. 1.]    |
 # +-----------+---------------+------------+-----------+---+---------------+
-
-'''
-Michael Sjoeberg
-2020-04-10
-https://github.com/michaelsjoeberg/python-playground/blob/master/machine-learning/delta-learning-algorithm.py
-'''

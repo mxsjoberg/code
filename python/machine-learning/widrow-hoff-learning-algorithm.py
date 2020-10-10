@@ -71,9 +71,3 @@ print(pt)
 # |     11    | [ 0.6755  0.4844 -0.2345] | [-1  2  1] | 0.0588 | [ 0.5814  0.6726 -0.1404] |
 # |     12    | [ 0.5814  0.6726 -0.1404] | [-1  3  2] | 1.1558 | [ 0.597   0.6259 -0.1715] |
 # +-----------+---------------------------+------------+--------+---------------------------+
-
-'''
-Michael Sjoeberg
-2020-04-10
-https://github.com/michaelsjoeberg/python-playground/blob/master/machine-learning/widrow-hoff-learning-algorithm.py
-'''
