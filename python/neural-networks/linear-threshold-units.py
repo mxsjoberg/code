@@ -9,6 +9,7 @@ def H(x, w, threshold=1):
 
     if (wx >= threshold):
         return 1
+    # optional
     # elif (wx == threshold):
     #     return 0.5
     else:
@@ -16,7 +17,8 @@ def H(x, w, threshold=1):
 
 assert (H([0.1, -0.5, 0.4], [0.1, -0.5, 0.4], 0) == 1)
 assert (H([0.1, 0.5, 0.4], [0.1, -0.5, 0.4], 0) == 0)
-#assert (H([0, 0, 0], [0, 0, 0], 0) == 0.5)
+# optional
+# assert (H([0, 0, 0], [0, 0, 0], 0) == 0.5)
 
 # logical AND
 threshold = 1.5
@@ -46,9 +48,3 @@ threshold = 1
 print(H([0, 0, 0], [2, -2, 2], threshold)) # 0
 print(H([1, 0, 0], [2, -2, 2], threshold)) # 1
 print(H([0, 1, 0], [2, -2, 2], threshold)) # 0
-
-'''
-Michael Sjoeberg
-2020-04-15
-https://github.com/michaelsjoeberg/python-playground/blob/master/neural-networks/linear-threshold-units.py
-'''

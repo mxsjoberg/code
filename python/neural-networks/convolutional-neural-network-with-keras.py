@@ -36,8 +36,8 @@ X_test = X_test / 255
 # one-hot encoding (https://en.wikipedia.org/wiki/One-hot)
 Y_train = np_utils.to_categorical(Y_train, n_classes)
 Y_test = np_utils.to_categorical(Y_test, n_classes)
-#print(Y_train.shape)
-#print(Y_test.shape)
+# print(Y_train.shape)
+# print(Y_test.shape)
 
 # neural network: sequential model (https://keras.io/models/sequential/)
 # -----------------------------------------------------------------
@@ -54,7 +54,7 @@ model.add(Dropout(0.5))
 model.add(Dense(n_classes, activation='softmax'))
 
 # plot model
-#plot_model(model, to_file='plot.png', show_shapes=True)
+# plot_model(model, to_file='plot.png', show_shapes=True)
 
 # training (https://keras.io/optimizers/)
 # -----------------------------------------------------------------
@@ -81,9 +81,3 @@ print(accuracy)
 
 # 0.029002553918152263
 # 0.9906
-
-'''
-Michael Sjoeberg
-2020-04-10
-https://github.com/michaelsjoeberg/python-playground/blob/master/neural-networks/convolutional-neural-network-with-keras.py
-'''

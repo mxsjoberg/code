@@ -33,8 +33,8 @@ epochs = 5
 #   plt.yticks([])
 # plt.savefig('figure.png')
 
-#print(X_train.shape)
-#print(X_test.shape)
+# print(X_train.shape)
+# print(X_test.shape)
 
 # reshape and set type
 X_train = X_train.reshape(X_train.shape[0], 784)
@@ -45,14 +45,14 @@ X_test = X_test.astype('float32')
 # normalize
 X_train = X_train / 255
 X_test = X_test / 255
-#print(X_train.shape)
-#print(X_test.shape)
+# print(X_train.shape)
+# print(X_test.shape)
 
 # one-hot encoding (https://en.wikipedia.org/wiki/One-hot)
 Y_train = np_utils.to_categorical(Y_train, n_classes)
 Y_test = np_utils.to_categorical(Y_test, n_classes)
-#print(Y_train.shape)
-#print(Y_test.shape)
+# print(Y_train.shape)
+# print(Y_test.shape)
 
 # neural network: sequential model (https://keras.io/models/sequential/)
 # -----------------------------------------------------------------
@@ -73,7 +73,7 @@ model.add(Dense(n_classes))
 model.add(Activation('softmax'))
 
 # plot model
-#plot_model(model, to_file='mnist_mlp_network.png', show_shapes=True)
+# plot_model(model, to_file='mnist_mlp_network.png', show_shapes=True)
 
 # training (https://keras.io/optimizers/)
 # -----------------------------------------------------------------
@@ -100,9 +100,3 @@ print(accuracy)
 
 # 0.060108443084184546
 # 0.9802
-
-'''
-Michael Sjoeberg
-2020-04-10
-https://github.com/michaelsjoeberg/python-playground/blob/master/neural-networks/multilayer-perceptron-layers-with-keras.py
-'''
