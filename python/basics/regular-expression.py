@@ -30,9 +30,3 @@ re_substitute                           # some random string to test regular exp
 re_match = re.match("20[01][0-9].*[0-9][0-9].*[0-9][0-9]", date)
 re_match == None                        # False
 re_match.pos                            # 0
-
-'''
-Michael Sjoeberg
-2018-11-05
-https://github.com/michaelsjoeberg/python-playground/blob/master/data-science/regular-expression.py
-'''

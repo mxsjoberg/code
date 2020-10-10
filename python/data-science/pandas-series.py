@@ -117,9 +117,3 @@ combined_series
 # neutrino      NaN     8128
 # neutron       73.0    28
 # proton        55.0    496
-
-'''
-Michael Sjoeberg
-2018-11-05
-https://github.com/michaelsjoeberg/python-playground/blob/master/data-science/pandas-series.py
-'''

@@ -5,7 +5,8 @@ b = [55, 634, 704, 2020]
 
 # create numpy array with list, specifying type as integer
 array_single = np.array(a, dtype='i')
-array_single                    # [60 28 49 81]
+array_single
+# [60 28 49 81]
 
 # create numpy array with many lists
 array_many = np.array([a, b])
@@ -19,7 +20,8 @@ array_many.shape                # (2, 4)
 
 # create numpy array with zeros
 array_zeros = np.zeros(4)
-array_zeros                     # [ 0.  0.  0.  0.]
+array_zeros
+# [ 0.  0.  0.  0.]
 
 # create 2x3 numpy array with ones
 array_ones = np.ones((2, 3))
@@ -74,9 +76,3 @@ np.minimum(a, b)                # [55 28 49 81]
 
 # sum of axis (columns)
 np.sum(array_many, axis=1)      # [218 3413]
-
-'''
-Michael Sjoeberg
-2018-11-05
-https://github.com/michaelsjoeberg/python-playground/blob/master/data-science/numpy-arrays.py
-'''

@@ -42,16 +42,11 @@ matrix.shape = (4, 3)
 #  [ 6  7  8]
 #  [ 9 10 11]]
 
-row = np.array([16, 17, 18])        # [16 17 18]
+row = np.array([16, 17, 18])
+# [16 17 18]
 
 matrix + row
 # [[16 18 20]
 #  [19 21 23]
 #  [22 24 26]
 #  [25 27 29]]
-
-'''
-Michael Sjoeberg
-2018-11-05
-https://github.com/michaelsjoeberg/python-playground/blob/master/data-science/numpy-operations.py
-'''

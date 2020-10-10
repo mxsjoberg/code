@@ -11,7 +11,7 @@ print(sc.version)
 # 2.1.2
 
 # NOTE: create output file for large outputs
-# $ python apache-spark.py > apache-spark.out
+#   $ python apache-spark.py > apache-spark.out
 
 # creating RDD
 fs = sc.textFile("spark/u.user")
@@ -93,9 +93,3 @@ print(fs_numbers.intersection(sc.parallelize([3, 4, 5, 6, 7])).distinct().collec
 # cartesian
 print(fs_numbers.cartesian(sc.parallelize([1, 2])).collect())
 # [(1, 1), (1, 2), (2, 1), (2, 2), (3, 1), (3, 2), (4, 1), (4, 2), (5, 1), (5, 2)]
-
-'''
-Michael Sjoeberg
-2020-05-13
-https://github.com/michaelsjoeberg/python-playground/blob/master/data-science/apache-spark.py
-'''

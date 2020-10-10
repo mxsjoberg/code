@@ -9,19 +9,17 @@ import pymongo
 #print(pymongo.version)
 # 3.10.1
 
-# initiate mongodb database
-#
-# > mkdir mongodb; cd mongodb
-# > mkdir -p data/db
-# > mongod --dbpath=./data/db
+# NOTE: initiate mongodb database
+#   $ mkdir mongodb; cd mongodb
+#   $ mkdir -p data/db
+#   $ mongod --dbpath=./data/db
 
-# import dataset (note: require running mongod instance)
-#
-# > mongoimport --db test --collection restaurants --drop --file mongodb.json
+# NOTE: import dataset (require running mongod instance)
+#   $ mongoimport --db test --collection restaurants --drop --file mongodb.json
 
 # client = MongoClient('localhost', 27017)
 client = pymongo.MongoClient('mongodb://localhost:27017/')
-#print(client)
+print(client)
 # MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True)
 
 # show databases
@@ -29,16 +27,16 @@ print(client.list_database_names())
 # ['admin', 'config', 'local', 'test']
 
 # select database
-# db = client['test']
 db = client.test
+# db = client['test']
 
 # show collections
 print(db.list_collection_names())
 # ['restaurants']
 
 # select collection
-#collection = db['restaurants']
 collection = db.restaurants
+# collection = db['restaurants']
 
 # count documents in collection
 print(collection.count_documents({}))
@@ -77,30 +75,30 @@ collection.delete_many({ "restaurant_id": "41704620" })
 
 # insert document into collection
 collection.insert_one({
-	"address": {
-		"street": "2 Avenue",
-		"zipcode": "10075",
-		"building": "1480",
-		"coord": [ -73.9557413, 40.7720266 ]
-	},
-	"borough": "Manhattan",
-	"cuisine": "Italian",
-	"grades": [
-		{
-			"date": datetime.datetime(2014, 10, 1, 0, 0),
-			"grade": "A",
-			"score": 11
-		}, {
-			"date": datetime.datetime(2014, 1, 16, 0, 0),
-			"grade": "B",
-			"score": 17
-		}
-	],
-	"name": "Vella",
-	"restaurant_id": "41704620"
+    "address": {
+        "street": "2 Avenue",
+        "zipcode": "10075",
+        "building": "1480",
+        "coord": [ -73.9557413, 40.7720266 ]
+    },
+    "borough": "Manhattan",
+    "cuisine": "Italian",
+    "grades": [
+        {
+            "date": datetime.datetime(2014, 10, 1, 0, 0),
+            "grade": "A",
+            "score": 11
+        }, {
+            "date": datetime.datetime(2014, 1, 16, 0, 0),
+            "grade": "B",
+            "score": 17
+        }
+    ],
+    "name": "Vella",
+    "restaurant_id": "41704620"
 })
 
-#print(collection.find({ "restaurant_id": "41704620" }).count())
+# print(collection.find({ "restaurant_id": "41704620" }).count())
 pprint.pprint(collection.find_one({ "restaurant_id": "41704620" }))
 # {'_id': ObjectId('5ebbdfd6833677f47e1bdbb3'),
 #  'address': {'building': '1480',
@@ -198,10 +196,4 @@ for document in q_aggregate: pprint.pprint(document)
 # {'_id': 'Brooklyn', 'count': 6086}
 
 # explain
-#pprint.pprint(collection.find({ "grades.score": { "$gt": 90} }, { "grades.score": 1 }).explain())
-
-'''
-Michael Sjoeberg
-2020-05-13
-https://github.com/michaelsjoeberg/python-playground/blob/master/data-science/mongodb.py
-'''
+pprint.pprint(collection.find({ "grades.score": { "$gt": 90} }, { "grades.score": 1 }).explain())
