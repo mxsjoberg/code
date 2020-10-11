@@ -8,6 +8,6 @@ tuple_two._3._2                                 // 0
 
 // assign each value in tuple to a variable
 val (first, second, third) = ("Alpha", "Beta", "Gamma")
-first                                   		// Alpha
-second                                  		// Beta
-third                                   		// Gamma
+first                                           // Alpha
+second                                          // Beta
+third                                           // Gamma
