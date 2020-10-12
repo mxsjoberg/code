@@ -2,8 +2,8 @@
 
 Folder structure:
 
-	- <programming language>
-		- BASICS
+- <programming language>
+	- BASICS
 			Programming language syntax used in most tasks
 
 		- <LANGUAGE SPECIFIC APPLICATIONS>
