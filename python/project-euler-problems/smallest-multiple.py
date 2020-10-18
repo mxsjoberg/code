@@ -52,6 +52,3 @@ while number < MAX_ITER:
 
 print(result)
 # 232792560
-
-
-
