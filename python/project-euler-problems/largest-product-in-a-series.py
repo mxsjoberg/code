@@ -71,7 +71,6 @@ for i in range(len(nlist)):
 assert(max_product == 5832)
 
 # solution
-# test
 adj_digits = 13
 max_product = 0
 for i in range(len(nlist)):
