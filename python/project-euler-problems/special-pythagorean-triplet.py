@@ -9,13 +9,15 @@
 # There exists exactly one Pythagorean triplet 
 # for which a + b + c = 1000. Find the product 
 # abc.
+#
+# https://projecteuler.net/problem=9
 
 import numpy as np
 
 # test
 MAX_N = 500
 def brute(MAX_N):
-	# not pretty
+	'''it is not pretty, but it works'''
 	for a in range(MAX_N):
 		for b in range(MAX_N):
 			for c in range(MAX_N):
