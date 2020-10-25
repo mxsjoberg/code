@@ -9,3 +9,5 @@ prolog/basics/db.pl
 cpp/basics/makefile
 python/notebooks/.ipynb_checkpoints/*
 python/notebooks/data/*
+*.o
+assembly/intro
