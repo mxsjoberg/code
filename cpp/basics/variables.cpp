@@ -1,9 +1,9 @@
-// OUTSIDE SCOPE: global
+// OUTSIDE SCOPE: global or header file
 // variable declaration
 extern int x;
-extern char y[];
-extern float z;
-extern double a; // double size of float
+extern char y[6]; 		// 
+extern float z; 		// 4 bytes
+extern double a; 		// 8 bytes
 
 // INSIDE SCOPE: local
 // variable definition
@@ -22,3 +22,10 @@ int c, d;
 
 // multiple variable initialisation
 c = d = 6;                  // 6, 6
+
+// type modifiers
+unsigned int unint; 		// 4 bytes, 0 to 4294967295
+signed int siint; 			// 4 bytes, -2147483648 to 2147483647
+short int sint; 			// 2 bytes, -32768 to 32767
+long int lint; 				// 8 bytes, -2147483648 to 2147483647
+long long int llint; 		// 8 bytes, -(2^63) to (2^63)-1
