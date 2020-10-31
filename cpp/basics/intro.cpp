@@ -33,13 +33,17 @@ int main(int argc, char** argv) {
     return 0;
 }
 
-// compile and run from command-line:
-//  $ g++ <filename>.cpp -o <filename>
-//  $ ./<filename>
+/* 
+    compile and run from command-line:
+        
+        $ g++ <filename>.cpp -o <filename>
+        $ ./<filename>
 
-// compile and run with makefile:
-//  main: <filename>.cpp
-//      g++ -o main <filename>.cpp
+    compile and run with makefile:
+
+        main: <filename>.cpp
+            g++ -o main <filename>.cpp
+*/
 
 // size in memory
 int a = 10;
@@ -49,3 +53,10 @@ sizeof(a)
 // pointer
 &a
 // 0x7ffee52776b8
+
+// conditional operator
+int x = 10;
+
+// if x < 10, return 30, else return 40
+(x < 10) ? 30 : 40
+// 40
