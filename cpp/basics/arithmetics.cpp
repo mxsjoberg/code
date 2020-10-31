@@ -33,7 +33,7 @@ int a = 10;
 a++                             // 11
 a--                             // 9
 
-// built-ins requires cmath
+// no built-ins, include cmath
 #include <cmath>
 
 // power
