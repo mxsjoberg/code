@@ -33,8 +33,8 @@ strlen(first_string);
 // 17
 
 // or with string class
-string_str.size();
-// 6
+string_str.size();                          // 6
+string_str.length();                        // 6
 
 // copy string
 strcpy(empty_string, first_string);
