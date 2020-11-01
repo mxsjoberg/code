@@ -47,14 +47,6 @@ int main(int argc, char** argv) {
             g++ -o main <filename>.cpp
 */
 
-// read input
-int input;
-cout << "Enter a number: ";
-cin >> input;
-cout << "Input: " << input << endl;
-// Enter a number: 4
-// Input: 4
-
 // size in memory
 int a;
 sizeof(a)
