@@ -13,9 +13,11 @@ int main(void) {
     return 0;
 }
 
-// command line arguments
-//  argc: number of arguments
-//  argv: pointer to array with arguments
+/*
+    command line arguments
+    - argc: number of arguments
+    - argv: pointer to array with arguments
+*/
 int main(int argc, char *argv[]) {
     // print file name
     printf("Running: %s\n", argv[0]);
@@ -34,13 +36,17 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
-// compile and run from command-line:
-//  $ gcc <filename>.c -o <filename>
-//  $ ./<filename>
+/* 
+    1. compile and run from command-line
+        
+        $ gcc <filename>.c -o <filename>
+        $ ./<filename>
 
-// compile and run with makefile:
-//  main: <filename>.c
-//      gcc -o main <filename>.c
+    2. compile and run with makefile
+        
+        main: <filename>.c
+            gcc -o main <filename>.c
+*/
 
 // size in memory
 int a = 10;
