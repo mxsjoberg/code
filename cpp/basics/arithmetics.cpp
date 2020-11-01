@@ -54,3 +54,14 @@ round(2.945)                    // 3
 round(2.495)                    // 2
 
 // NOTE: no built-ins for round to decimal places
+
+// bitwise operators
+int A = 60;                     // 0011 1100
+int B = 13;                     // 0000 1101
+
+A & B                           // 12, 0000 1100
+A | B                           // 61, 0011 1101
+A ^ B                           // 49, 0011 0001
+~A                              // -61, 1100 0011
+A << 2                          // 240, 1111 0000
+A >> 2                          // 15, 0000 1111
