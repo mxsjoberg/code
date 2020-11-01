@@ -9,14 +9,16 @@ using namespace std;
 
 int main() {
     // do something
-    cout << "Hello world!";
+    cout << "Hello world!" << endl;
 
     return 0;
 }
 
-// command line arguments
-//  argc: number of arguments
-//  argv: pointer to array with arguments
+/* 
+    command line arguments
+    - argc: number of arguments
+    - argv: pointer to array with arguments
+*/
 int main(int argc, char** argv) {
     // print file name
     cout << "Running: " << argv[0] << endl;
@@ -34,12 +36,12 @@ int main(int argc, char** argv) {
 }
 
 /* 
-    compile and run from command-line:
+    1. compile and run from command-line:
         
         $ g++ <filename>.cpp -o <filename>
         $ ./<filename>
 
-    compile and run with makefile:
+    2. compile and run with makefile:
 
         main: <filename>.cpp
             g++ -o main <filename>.cpp
@@ -54,9 +56,9 @@ sizeof(a)
 &a
 // 0x7ffee52776b8
 
-// conditional operator
+// misc operators
 int x = 10;
 
-// if x < 10, return 30, else return 40
+// conditional: if x < 10, return 30, else return 40
 (x < 10) ? 30 : 40
 // 40
