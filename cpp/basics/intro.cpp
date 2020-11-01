@@ -56,7 +56,7 @@ sizeof(a)
 &a
 // 0x7ffee52776b8
 
-// conditional: if x < 10, return 30, else return 40
+// conditional (ternary operator): if x < 10, return 30, else return 40
 int x = 10;
 (x < 10) ? 30 : 40
 // 40
