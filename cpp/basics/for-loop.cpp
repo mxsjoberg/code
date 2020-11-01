@@ -1,5 +1,4 @@
-int a;
-for (a = 1; a < 5; a++) {
+for (int i = 1; i < 5; i++) {
     // do something
 }
 
@@ -14,7 +13,6 @@ for (int i = 0; i < 2; i++) {
 #define ARRAY_SIZE 5
 
 int array[ARRAY_SIZE] = { 1, 2, 3, 4, 5 };
-for (int n = 0; n < ARRAY_SIZE; n++) {
+for (int i = 0; i < ARRAY_SIZE; i++) {
     // do something
-    cout << n << endl;
 }
