@@ -7,6 +7,6 @@ while (a < 5) {
 
 // or
 do {
-	// do something
-	a++;
+    // do something
+    a++;
 } while (a < 5);
