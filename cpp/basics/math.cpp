@@ -4,11 +4,14 @@
 M_PI                            // 3.14159
 M_E                             // 2.71828
 
-// numerical operations
+// rounding
 floor(2.945)                    // 2
 trunc(2.945)                    // 2
+
+// numerical operations
 exp(1)                          // 2.71828
 sqrt(16)                        // 4
+log(2)                          // 0.693147
 
 // NOTE: no built-in for factorial
 
