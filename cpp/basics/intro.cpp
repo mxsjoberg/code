@@ -47,8 +47,16 @@ int main(int argc, char** argv) {
             g++ -o main <filename>.cpp
 */
 
+// read input
+int input;
+cout << "Enter a number: ";
+cin >> input;
+cout << "Input: " << input << endl;
+// Enter a number: 4
+// Input: 4
+
 // size in memory
-int a = 10;
+int a;
 sizeof(a)
 // 4
 
@@ -56,9 +64,7 @@ sizeof(a)
 &a
 // 0x7ffee52776b8
 
-// misc operators
-int x = 10;
-
 // conditional: if x < 10, return 30, else return 40
+int x = 10;
 (x < 10) ? 30 : 40
 // 40
