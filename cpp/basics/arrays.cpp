@@ -1,4 +1,5 @@
 // arrays are mutable
+// NOTE: undefined size will set size to number of elements in array
 double numbers[] = { 200.0, -2.2, 1.0, 0.0 };
 
 // array with strings
@@ -7,7 +8,7 @@ char char_array[][MAX_STRING_SIZE] = { "REMOVE", "RANDOM" };
 
 // or with string class
 #include <string>
-string names[4] = { "Adam", "John", "Michael", "Susan" };
+string names[10] = { "Adam", "John", "Michael", "Susan" };
 
 // indexing
 numbers[0]                      // 200
