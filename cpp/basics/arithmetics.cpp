@@ -33,7 +33,11 @@ int a = 10;
 a++                             // 11
 a--                             // 9
 
-// no built-ins, include cmath
+// max and min
+max(10, 20)                     // 20
+min(10, 20)                     // 10
+
+// include cmath for more
 #include <cmath>
 
 // power
@@ -42,10 +46,10 @@ pow(10, 2)                      // 100
 // module, remainder on floating point
 fmod(12.5, 10.0)                // 2.5
 
-// built-ins
+// absolute value
 abs(-20)                        // 20
 
-// rounding value
+// rounding
 round(2.945)                    // 3
 round(2.495)                    // 2
 
