@@ -12,6 +12,7 @@ int x;
 
 // variable initialisation
 x = 6;                          // 6
+c = 65;                         // A (ASCII)
 z = 1.05;                       // 1.05
 t = true;                       // 1
 
@@ -20,7 +21,9 @@ z_double = 10e4;                // 100000
 
 // variable definition and initialisation
 char c = 'S';
-char c_arr[] = "String";        // undefined size
+
+// character array with undefined size
+char c_arr[] = "String";
 
 // multiple variable definition
 int x, y;
