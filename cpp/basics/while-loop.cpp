@@ -1,3 +1,4 @@
+// NOTE: use break to exit loop, continue to skip one iteration
 int a = 0;
 
 while (a < 5) {
