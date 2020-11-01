@@ -9,7 +9,6 @@ int function(int arg) {
 }
 
 // EXAMPLE: power function
-
 // declare function
 int power(int base, int x);
 
