@@ -1,19 +1,22 @@
-// OUTSIDE SCOPE: global (set extern to make visible in all files)
-// variable declaration
-int x;                          // integer
-char c;                         // character
+// OUTSIDE SCOPE: variable declaration
+// NOTE: set extern to make visible in all files
+int x;                          // integer, 4 bytes
+char c;                         // character, 1 byte
 char c_arr[6];                  // character array of size 6 (string)
 float z;                        // floating point, 4 bytes
 double z_double;                // floating point, 8 bytes
-bool t = true;                  // boolean (true or false)
+bool t;                         // boolean (true or false), 1 byte
 
-// INSIDE SCOPE: local
-// variable definition
+// INSIDE SCOPE: variable definition
 int x;
 
 // variable initialisation
-x = 6;
-z = 1.05;
+x = 6;                          // 6
+z = 1.05;                       // 1.05
+t = true;                       // 1
+
+// or scientific notation
+z_double = 10e4;                // 100000
 
 // variable definition and initialisation
 char c = 'S';
