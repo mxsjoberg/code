@@ -1,9 +1,11 @@
-// OUTSIDE SCOPE: global
+// OUTSIDE SCOPE: global (set extern to make visible in all files)
 // variable declaration
-extern int x;
-extern char y[6];
-extern float z;             // 4 bytes
-extern double a;            // 8 bytes
+int x; 						// integer
+char c; 					// character
+char carr[6]; 				// character array of size 6 (string)
+float z;             		// floating point, 4 bytes
+double zz; 					// floating point, 8 bytes
+bool t = true; 				// boolean (true or false)
 
 // INSIDE SCOPE: local
 // variable definition
@@ -11,20 +13,21 @@ int x;
 
 // variable initialisation
 x = 6;
+z = 1.05;
+zz = 12.5;
 
 // variable definition and initialisation
-char y[] = "String";
-float z = 1.05;
-double a = 12.5;
+char c = 'S';
+char carr[] = "String"; 	// undefined size
 
 // multiple variable definition
-int c, d;
+int x, y;
 
 // multiple variable initialisation
-c = d = 6;                  // 6, 6
+x = y = 6;                  // 6, 6
 
 // multiple variable definition and initialisation
-int c = 6, d = 6;
+int x = 6, y = 6;
 
 // type modifiers
 unsigned int unint;         // 4 bytes, 0 to 4294967295
