@@ -16,7 +16,8 @@ int power(int base, int x);
 // main() function
 int main(void) {
     // call function
-    power(2, 3)                 // 8
+    power(2, 3)
+    // 8
 
     return 0;
 }
