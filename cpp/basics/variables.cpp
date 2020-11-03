@@ -34,6 +34,13 @@ x = y = 6;                      // 6, 6
 // multiple variable definition and initialisation
 int x = 6, y = 6;
 
+// typedef to create alias
+typedef int myint;
+myint x = 10, y = 5, z = -20;
+
+cout << x << ", " << y << ", " << z << endl;
+// 10, 5, -20
+
 // type modifiers
 unsigned int unsigned_int;      // 4 bytes, 0 to 4294967295
 signed int signed_int;          // 4 bytes, -2147483648 to 2147483647
