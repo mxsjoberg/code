@@ -10,7 +10,7 @@ printf("%d\n", __STDC__);       // 1
    printf("Error: " #e "\n")
 
 // INSIDE SCOPE: use macro
-error_message(This is an error.);
+error_message("This is an error.");
 // Error: This is an error.
 
 // defined
