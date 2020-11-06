@@ -20,7 +20,7 @@ nlist = list(range(1, 11))
 
 sum_square = 0
 for n in nlist:
-	sum_square += (n ** 2)
+    sum_square += (n ** 2)
 
 square_sum = sum(nlist) ** 2
 
@@ -31,7 +31,7 @@ nlist = list(range(1, 101))
 
 sum_square = 0
 for n in nlist:
-	sum_square += (n ** 2)
+    sum_square += (n ** 2)
 
 square_sum = sum(nlist) ** 2
 

@@ -62,11 +62,11 @@ nlist = list(map(int, nlist))
 adj_digits = 4
 max_product = 0
 for i in range(len(nlist)):
-	if (i + adj_digits > len(nlist)):
-		break
-	product = np.prod(nlist[i:i+adj_digits])
-	if product > max_product:
-		max_product = product
+    if (i + adj_digits > len(nlist)):
+        break
+    product = np.prod(nlist[i:i+adj_digits])
+    if product > max_product:
+        max_product = product
 
 assert(max_product == 5832)
 
@@ -74,11 +74,11 @@ assert(max_product == 5832)
 adj_digits = 13
 max_product = 0
 for i in range(len(nlist)):
-	if (i + adj_digits > len(nlist)):
-		break
-	product = np.prod(nlist[i:i+adj_digits])
-	if product > max_product:
-		max_product = product
+    if (i + adj_digits > len(nlist)):
+        break
+    product = np.prod(nlist[i:i+adj_digits])
+    if product > max_product:
+        max_product = product
 
 print(max_product)
 # 23514624000

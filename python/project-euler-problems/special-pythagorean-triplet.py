@@ -17,14 +17,14 @@ import numpy as np
 # test
 MAX_N = 500
 def brute(MAX_N):
-	'''it is not pretty, but it works'''
-	for a in range(MAX_N):
-		for b in range(MAX_N):
-			for c in range(MAX_N):
-				if (a < b and b < c) and (a ** 2 + b ** 2 == c ** 2) and (a + b + c == 1000):
-					return (a, b, c), a * b * c
+    '''it is not pretty, but it works'''
+    for a in range(MAX_N):
+        for b in range(MAX_N):
+            for c in range(MAX_N):
+                if (a < b and b < c) and (a ** 2 + b ** 2 == c ** 2) and (a + b + c == 1000):
+                    return (a, b, c), a * b * c
 
-	return 0
+    return 0
 
 triplet, result = brute(MAX_N)
 
