@@ -1,4 +1,4 @@
-# Largest product in gris
+# Largest product in grid
 #
 # In the 20x20 grid below, four numbers along a diagonal line
 # have been marked in red.
