@@ -1,13 +1,36 @@
-# README
+# programming
+
+This is collection of programming language syntax, algorithm implementations, and smaller programs for self-learning or reference.
 
 Folder structure:
 
-    <programming language>
-        /basics
-            Programming language syntax used in most tasks
+<pre>
+< programming language >
+        
+	/basics
+            
+        intro (FYI stuff)
+		
+		arithmetics
+		variables
+		logical operators
+    	< data structures > (tuple, set, list, dict, array, etc.)
+    	< conditionals > (if-then-else, case, switch, etc.)
+    	< loops > (do-while, for, repeat, etc.)
+    	strings
+    	functions
+    	classes
+    	files
+    	exceptions
+    	recursion
+    	< language specific syntax > (header, macros, pointers, memory management, etc.)
+    	< standard library > (math, regex, datetime, etc.)
 
-        /<LANGUAGE SPECIFIC APPLICATIONS>
-            Programming language as applied in specific applications
+    /< topics >
+        
+        Algorithms, machine learning, non-standard libraries. Name topics according to usage in language (i.e. Data Science, Machine Learning for Python).
 
-        /<OTHER>
-            Not in any of the above
+    /other
+        
+        Not in any of the above.
+</pre>
