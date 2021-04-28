@@ -9,8 +9,7 @@ Folder structure:
         
 	/basics
             
-        intro (FYI stuff)
-		
+        intro (FYI stuff, compile, run, etc.)
 		arithmetics
 		variables
 		logical operators
