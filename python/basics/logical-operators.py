@@ -2,13 +2,13 @@ T = True
 F = False
 
 # and, or
-T or F                          # True
-T and (T and F)                 # False
+print(T or F)                   # True
+print(T and (T and F))          # False
 
 # not
-not T                           # False
-not (not T)                     # True
+print(not T)                    # False
+print(not (not T))              # True
 
 # equality
-1 == 2                          # False
-1 != 2                          # True
+print(1 == 2)                   # False
+print(1 != 2)                   # True
