@@ -1,18 +1,30 @@
-# lists are mutable
-list_one = ['REMOVE', 'RANDOM']
-list_two = [200, -2, [1.0, 0.0]]
+lst_one = ['REMOVE', 'RANDOM']
+lst_two = [200, -2, [1.0, 0.0]]
 
-list_one[0] = 'ADD'                 # ['ADD', 'RANDOM']
-list_one[1]                         # RANDOM
-len(list_one)                       # 2
-len(list_two)                       # 3
+# lists are mutable
+lst_one[0] = 'ADD'
+
+print(lst_one)                      # ['ADD', 'RANDOM']
+print(lst_one[1])                   # RANDOM
+
+# length of list
+print(len(lst_one))                 # 2
+print(len(lst_two))                 # 3
 
 # concatenate lists
-list = list_one + list_two          # ['ADD', 'RANDOM', 200, -2, [1.0, 0.0]]
+lst = lst_one + lst_two
+print(lst)
+# ['ADD', 'RANDOM', 200, -2, [1.0, 0.0]]
 
 # list operations
-list.append('NULL')                 # ['ADD', 'RANDOM', 200, -2, [1.0, 0.0], 'NULL']
-list.sort()                         # [-2, 200, [1.0, 0.0], 'ADD', 'NULL', 'RANDOM']
+lst.append('NULL')
+print(lst)
+# ['ADD', 'RANDOM', 200, -2, [1.0, 0.0], 'NULL']
+
+# convert to string before sorting (Python 3)
+print(sorted(list(map(str,lst))))
+# ['-2', '200', 'ADD', 'NULL', 'RANDOM', '[1.0, 0.0]']
 
 # create list from a string
-list_string = list('100B')          # ['1', '0', '0', 'B']
+print(list('100B'))
+# ['1', '0', '0', 'B']
