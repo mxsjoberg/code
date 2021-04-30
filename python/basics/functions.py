@@ -10,18 +10,21 @@ def power(base, x):
 
     return base ** x
 
-power(2, 3)                 	# 8
-power.__doc__               	# multiply base with itself x times
+print(power(2, 3))                  # 8
+print(power.__doc__)                # multiply base with itself x times
 
 # default arguments
 def power(base, x = 3):
     return base ** x
 
-power(2)                    	# 8
+print(power(2))
+# 8
 
 # multiple return values
 def power(base, x):
     result = base ** x
     return result, base
 
-result, base = power(2, 3)      # (8, 2)
+result, base = power(2, 3)
+print(result, base)
+# 8 2
