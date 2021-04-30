@@ -1,11 +1,11 @@
 def recursive(x):
-	# do something
-	recursive(y)
+    # do something
+    recursive(y)
 
-# EXAMPLE: simple countdown
+# example: simple countdown
 def countdown(n):
     if n <= 0:
-        print("Countdown done...")
+        print("Done!")
     else:
         print(n)
         countdown(n - 1)
@@ -16,4 +16,4 @@ countdown(5)
 # 3
 # 2
 # 1
-# Done.
+# Done!
