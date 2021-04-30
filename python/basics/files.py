@@ -12,8 +12,8 @@ content = open('test.txt', 'r').read()
 # read lines
 with open('test.txt', 'r') as file:
     for line in file.readlines():
-        pass
         # do something
+        pass
 
 # write to file
 with open('test.txt', 'w') as file:
