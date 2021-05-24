@@ -1,6 +1,6 @@
 PROGRAM sets;
 TYPE
-    { sets are collections of same type }
+    // sets are collections of same type
     days = set of (Mon, Tue, Wed, Thu, Fri, Sat, Sun);
     letters = set of char;
     alphabet = set of 'A' .. 'Z';
