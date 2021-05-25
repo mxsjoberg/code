@@ -1,6 +1,6 @@
 PROGRAM arithmetic_operators;
 BEGIN
-    WRITELN(10 + 20);               // 30
+    WriteLn(10 + 20);               // 30
     WRITELN(20 - 10);               // 10
     WRITELN(10 * 20);               // 200
     WRITELN(20 / 10);               // 2.0...
