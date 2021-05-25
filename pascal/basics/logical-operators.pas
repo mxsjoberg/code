@@ -1,4 +1,4 @@
-PROGRAM logicaloperators;
+PROGRAM logical_operators;
 VAR
     T: boolean = true;
     F: boolean = false;
