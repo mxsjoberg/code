@@ -25,4 +25,13 @@ BEGIN
     // (i, j): (2, 0)
     // (i, j): (2, 1)
     // (i, j): (2, 2)
+
+    // iterate down
+    for i := 5 DownTo 0 do WRITELN(i);
+    // 5
+    // 4
+    // 3
+    // 2
+    // 1
+    // 0
 END.
