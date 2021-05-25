@@ -3,16 +3,19 @@ VAR
     T: boolean = true;
     F: boolean = false;
 BEGIN
-    WRITELN(T);                 // TRUE
-    WRITELN(F);                 // FALSE
+    // and, or
+    WRITELN(T and F);           // FALSE
+    WRITELN(T and (T or F));    // TRUE
 
-    // operators
-    WRITELN(T or F);            // TRUE
-    WRITELN(T and (T and F));   // FALSE
+    // not
     WRITELN(not T);             // FALSE
     WRITELN(not (not T));       // TRUE
 
-    // equality
+    // relational
     WRITELN(1 = 2);             // FALSE
     WRITELN(1 <> 2);            // TRUE
+    WRITELN(1 > 2);             // FALSE
+    WRITELN(1 < 2);             // TRUE
+    WRITELN(1 >= 2);            // FALSE
+    WRITELN(1 <= 2);            // TRUE
 END.
