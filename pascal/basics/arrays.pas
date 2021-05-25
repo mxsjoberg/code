@@ -12,25 +12,26 @@ VAR
     // n-dimensional
     matrix: array[0..9, 0..9] of integer;
 
+    // declare and initialise
+    numbers: array[0..4] of integer = (1, 2, 3, 4, 5);
+
     // declare iterator variables
     i, j: integer;
 BEGIN
     // initialise array
-    for i := 0 to 19 do
-        lst[i] := i;
+    for i := 0 to 19 do lst[i] := i;
 
     // access element in array
-    WRITELN(lst[0]);                            // 0
-    WRITELN(lst[8]);                            // 8
+    WRITELN(lst[0]);                            // 0.0...
+    WRITELN(lst[8]);                            // 8.0...
 
-    // iterate array (note: one line is ok)
-    for i := 0 to 4 do vector[i] := i * i;
-    for j := 0 to 4 do WRITELN(vector[j]);
-    // 0
+    // iterate array
+    for i := 0 to 4 do WRITELN(numbers[i]);
     // 1
+    // 2
+    // 3
     // 4
-    // 9
-    // 16
+    // 5
 
     // initialise n-dimensional array
     for i := 0 to 9 do
