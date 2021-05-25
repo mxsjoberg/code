@@ -7,23 +7,23 @@ Folder structure:
 <pre>
 < programming language >
         
-	/basics
+    /basics
             
         intro (FYI stuff, compile, run, etc.)
-		arithmetics
-		variables
-		logical operators
-    	< data structures > (tuple, set, list, dict, array, etc.)
-    	< conditionals > (if-then-else, case, switch, etc.)
-    	< loops > (do-while, for, repeat, etc.)
-    	strings
-    	functions
-    	classes
-    	files
-    	exceptions
-    	recursion
-    	< language specific syntax > (header, macros, pointers, memory management, etc.)
-    	< standard library > (math, regex, datetime, etc.)
+        arithmetics
+        variables
+        logical operators
+        < data structures > (tuple, set, list, dict, array, etc.)
+        < conditionals > (if-then-else, case, switch, etc.)
+        < loops > (do-while, for, repeat, etc.)
+        strings
+        functions
+        classes
+        files
+        exceptions
+        recursion
+        < language specific syntax > (header, macros, pointers, memory management, etc.)
+        < standard library > (math, regex, datetime, etc.)
 
     /< topics >
         
