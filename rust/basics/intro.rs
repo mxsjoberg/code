@@ -14,6 +14,11 @@ fn main() {
 }
 
 /*
-    using Cargo build system and package manager:
-        > cargo new <PROJECT_NAME> --bin
+    run from command-line:
+        $ rustc main.rs
+        $ ./main
+    
+    run with Cargo build system and package manager:
+        $ cargo new <PROJECT_NAME> --bin
+        $ cargo run
 */
