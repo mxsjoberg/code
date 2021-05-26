@@ -1,6 +1,5 @@
 fn function(arg: i32) -> i32 {
     // do something
-
     return arg;
 }
 
