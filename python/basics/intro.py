@@ -8,10 +8,14 @@
 
 def main():
     # do something
+    print("hello python")
+    # hello python
+
     return
 
-if (__name__ == "__main__"):
-    main()
+if (__name__ == "__main__"): main()
 
-# run from command-line:
-#   $ python <filename>.py
+'''
+    run from command-line:
+        $ python <filename>.py
+'''
