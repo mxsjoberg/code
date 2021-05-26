@@ -16,7 +16,7 @@ kd_tree.data
 
 # index and distance to nearest point
 dist, idx = kd_tree.query([(4.5, 1.25)])
-dist                    # [ 1.67705098]
+dist                    # [1.67705098]
 idx                     # [1]
 
 # nearest point

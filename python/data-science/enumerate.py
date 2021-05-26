@@ -1,9 +1,8 @@
 lst = ['First','Second','Third','Fourth','Fifth']
-# ['First', 'Second', 'Third', 'Fourth', 'Fifth']
 
 # for each in enumerated list
 for item in enumerate(lst):
-	item
+    item
 
 # (0, 'First')
 # (1, 'Second')

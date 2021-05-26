@@ -8,11 +8,12 @@ a * 6                               # [ 0  6 12 18 24 30]
 # gradient
 x = np.array([2, 4, 5])             # [2 4 5]
 y = np.array([6, 2, 8])             # [6, 2, 8]
-np.gradient(x)                      # [ 2.   1.5  1. ]      (i.e. (4 - 2) / 1, (5 - 2) / 2, (5 - 4)/ 1)
-np.gradient(y)                      # [-4.  1.  6.]         (i.e. (2 - 6) / 1, (8 - 6) / 2, (8 - 2)/ 1)
+np.gradient(x)                      # [ 2.   1.5  1. ]      -> (4 - 2) / 1, (5 - 2) / 2, (5 - 4)/ 1
+np.gradient(y)                      # [-4.  1.  6.]         -> (2 - 6) / 1, (8 - 6) / 2, (8 - 2)/ 1
 
 # numerical derivative
-np.gradient(y) / np.gradient(x)     # [-2.          0.66666667  6.        ]
+np.gradient(y) / np.gradient(x)
+# [-2.          0.66666667  6.        ]
 
 # broadcasting
 b = np.arange(4)
