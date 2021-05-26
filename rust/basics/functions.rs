@@ -1,3 +1,14 @@
+//! Documentation (support markdown)
+//!
+//! # Function
+//!
+//! ```
+//! assert_eq!(42, function(42))
+//! fn function(arg: i32) -> i32 {
+//!     // do something
+//!     return arg;
+//! }
+//! ``
 fn function(arg: i32) -> i32 {
     // do something
     return arg;
