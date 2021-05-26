@@ -1,4 +1,3 @@
-# Graph
 class Graph(dict):
     def __init__(self, vertices=[], edges=[]):
         '''

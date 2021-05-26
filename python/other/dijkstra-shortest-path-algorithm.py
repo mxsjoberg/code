@@ -12,8 +12,7 @@ inf = float('inf')
 edge = namedtuple('Edge', 'start, end, cost')
 
 # make_edge
-def make_edge(start, end, cost=1):
-    return edge(start, end, cost)
+def make_edge(start, end, cost=1): return edge(start, end, cost)
 
 class Graph:
     def __init__(self, edges):

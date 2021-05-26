@@ -12,7 +12,7 @@ class MRWordFrequencyCount(MRJob):
 
 if __name__ == '__main__': MRWordFrequencyCount.run()
 
-# python word-counting-with-mrjob.py text.txt
+# $ python word-counting-with-mrjob.py text.txt
 # "words"   234
 # "lines"   35
 # "chars"   1057
