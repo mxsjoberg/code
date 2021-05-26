@@ -33,7 +33,7 @@ fn main() {
     // cannot assign twice to immutable variable `x`
 
     // variable size type
-    let u : usize = 10;
+    let u: usize = 10;
 
     println!("{:?}", u);
     // 10
