@@ -1,5 +1,6 @@
 .DS_Store
 DRAFT*
+OLD*
 *.pyc
 *.wt
 */*/mongodb/*
