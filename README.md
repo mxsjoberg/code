@@ -10,20 +10,18 @@ Folder structure:
     /basics
             
         intro (FYI stuff, compile, run, etc.)
-        arithmetics
+        arithmetic operators
         variables
         logical operators
-        < data structures > (tuple, set, list, dict, array, etc.)
-        < conditionals > (if-then-else, case, switch, etc.)
-        < loops > (do-while, for, repeat, etc.)
+        < language specific data structures > (tuple, set, list, dict, array, etc.)
+        < language specific conditionals > (if-then-else, case, switch, etc.)
+        < language specific loops > (do-while, for, repeat, etc.)
         strings
         functions
-        classes
         files
         exceptions
-        recursion
-        < language specific syntax > (header, macros, pointers, memory management, etc.)
-        < standard library > (math, regex, datetime, etc.)
+        < language specific other syntax > (header, macros, pointers, classes, etc.)
+        < language specific standard libraries > (math, regex, datetime, etc.)
 
     /< topics >
         
