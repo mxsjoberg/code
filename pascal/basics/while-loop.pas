@@ -1,4 +1,4 @@
-PROGRAM for_loop;
+PROGRAM while_loop;
 VAR
     x: integer = 0;
 BEGIN
