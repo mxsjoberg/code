@@ -16,7 +16,7 @@ start:
 section .data
 
 message:
-    db          "hello world", 10       ; db -> raw bytes, text + newline = 11 + 1 = 12, line feed = 0xa = 10 = \n
+    db          "hello assembly", 10       ; db -> raw bytes, text + newline = 11 + 1 = 12, line feed = 0xa = 10 = \n
 
 ; run from command-line (64-bit MacOS):
 ;   $ nasm -f macho64 intro.asm
