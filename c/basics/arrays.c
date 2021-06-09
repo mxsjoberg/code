@@ -19,8 +19,6 @@ int array_multi[2][10] = {
 array_multi[1][2]
 // 7
 
-// NOTE: no built-ins for length
-
 // calculate length based on type
 int length = sizeof(array_one) / sizeof(double);
 length
