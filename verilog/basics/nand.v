@@ -1,5 +1,5 @@
 // gate-level
-module _nand (output Y, input A, B);
+module nand_gate (output Y, input A, B);
     // wire is electrical connection
     wire Yd;
     
@@ -8,8 +8,8 @@ module _nand (output Y, input A, B);
     not(Y, Yd);                     // Y = 0 if Yd = 1, else Y = 1
 endmodule
 
-// behavioural modeling
-module _nand_model (output reg Y, input A, B);
+// behavioural-level
+module nand_behavioural (output reg Y, input A, B);
     always @ (A or B) begin
         if (A == 1'b1 & B == 1'b1) begin
             Y = 1'b0;
@@ -21,12 +21,12 @@ module _nand_model (output reg Y, input A, B);
 endmodule
 
 // test
-module _nand_test;
+module nand_test;
     reg A, B;
     wire Y;
     
-    // _nand Instance0 (Y, A, B);
-    _nand_model Instance0 (Y, A, B);
+    // nand_gate Instance0 (Y, A, B);
+    nand_behavioural Instance0 (Y, A, B);
 
     initial begin
         #(0) A = 0; B = 0;
