@@ -37,15 +37,24 @@ int main(int argc, char *argv[]) {
 }
 
 /* 
-    1. compile and run from command-line
-        
+    compile and run from command-line:
         $ gcc <filename>.c -o <filename>
         $ ./<filename>
 
-    2. compile and run with makefile
-        
+    compile and run with makefile:
         main: <filename>.c
             gcc -o main <filename>.c
+
+    compile and inspect assembly code:
+        $ gcc <filename>.c -S
+
+    build system (sublime text):
+        {
+            "shell": true,
+            "cmd": ["gcc ${file} -o ${file_path}/${file_base_name} && ${file_path}/${file_base_name}"],
+            "file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+            "working_dir": "${file_path}",
+        }
 */
 
 // size in memory
