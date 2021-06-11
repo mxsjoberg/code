@@ -5,21 +5,23 @@
 */
 
 object Main {
-    // do something
-
-    def main(args: Array[String]) {
+    // Unit is same as void in Java
+    def main(args: Array[String]): Unit = {
         // do something
+        println("hello scala");
     }
 }
 
-// compile and run from command-line:
-//  $ scalac <filename>.scala
-//  $ scala <filename>
+/*
+    compile and run from command-line:
+        $ scalac <filename>.scala
+        $ scala <filename>
 
-// compile and run from sublime text
-{
-    "cmd": ["scala", "$file"],
-    "path": "$PATH:/usr/local/bin",
-    "file_regex": "^(.+):(\\d+): .+: (.+)",
-    "selector": "source.scala"
-}
+    build-system (sublime text):
+        {
+            "cmd": ["scala", "$file"],
+            "path": "$PATH:/usr/local/bin",
+            "file_regex": "^(.+):(\\d+): .+: (.+)",
+            "selector": "source.scala"
+        }
+*/
