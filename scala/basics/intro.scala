@@ -4,7 +4,7 @@
     https://en.wikipedia.org/wiki/Scala_(programming_language)
 */
 
-object Main {
+object Intro {
     // Unit is same as void in Java
     def main(args: Array[String]): Unit = {
         // do something
