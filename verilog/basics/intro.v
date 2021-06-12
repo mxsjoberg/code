@@ -8,6 +8,7 @@
 module intro;
     initial 
     begin
+        // $display : only useful for debugging
         $display("hello verilog");
         $finish;
     end
