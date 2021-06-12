@@ -1,3 +1,7 @@
+/*
+    Xor(a, b) : If a<>b then out = 1 else out = 0
+*/
+
 // gate-level
 module xor_gate (output out, input a, b);
     // wire : internal pin
@@ -36,10 +40,10 @@ module test;
 
     // note: #(n) : delay by n timestep (check time scale with $printtimescale)
     initial begin
-        #(0) a = 0; b = 0;
-        #(1) a = 0; b = 1;
-        #(1) a = 1; b = 0;
-        #(1) a = 1; b = 1;
+        #(0) a = 0; b = 0; // 0
+        #(1) a = 0; b = 1; // 1
+        #(1) a = 1; b = 0; // 1
+        #(1) a = 1; b = 1; // 0
     end
 
     initial begin
