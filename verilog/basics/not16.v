@@ -1,5 +1,5 @@
 /*
-    Not16(in, out) : For i = 0..15 out[i] = Not(in[i])
+    Not16(in) : For i = 0..15 out[i] = Not(in[i])
 */
 
 // gate-level
@@ -48,37 +48,37 @@ module test;
     initial begin
         $printtimescale;
         // Time scale of (test) is 1s / 1s
-        #(0) $monitor ("%2d | in[%2d] = %d | out = %d", $time, $time, in[0], out[0]);
-        #(1) $monitor ("%2d | in[%2d] = %d | out = %d", $time, $time, in[1], out[1]);
-        #(1) $monitor ("%2d | in[%2d] = %d | out = %d", $time, $time, in[2], out[2]);
-        #(1) $monitor ("%2d | in[%2d] = %d | out = %d", $time, $time, in[3], out[3]);
-        #(1) $monitor ("%2d | in[%2d] = %d | out = %d", $time, $time, in[4], out[4]);
-        #(1) $monitor ("%2d | in[%2d] = %d | out = %d", $time, $time, in[5], out[5]);
-        #(1) $monitor ("%2d | in[%2d] = %d | out = %d", $time, $time, in[6], out[6]);
-        #(1) $monitor ("%2d | in[%2d] = %d | out = %d", $time, $time, in[7], out[7]);
-        #(1) $monitor ("%2d | in[%2d] = %d | out = %d", $time, $time, in[8], out[8]);
-        #(1) $monitor ("%2d | in[%2d] = %d | out = %d", $time, $time, in[9], out[9]);
-        #(1) $monitor ("%2d | in[%2d] = %d | out = %d", $time, $time, in[10], out[10]);
-        #(1) $monitor ("%2d | in[%2d] = %d | out = %d", $time, $time, in[11], out[11]);
-        #(1) $monitor ("%2d | in[%2d] = %d | out = %d", $time, $time, in[12], out[12]);
-        #(1) $monitor ("%2d | in[%2d] = %d | out = %d", $time, $time, in[13], out[13]);
-        #(1) $monitor ("%2d | in[%2d] = %d | out = %d", $time, $time, in[14], out[14]);
-        #(1) $monitor ("%2d | in[%2d] = %d | out = %d", $time, $time, in[15], out[15]);
-        //  0 | in[ 0] = 1 | out = 0
-        //  1 | in[ 1] = 1 | out = 0
-        //  2 | in[ 2] = 1 | out = 0
-        //  3 | in[ 3] = 1 | out = 0
-        //  4 | in[ 4] = 1 | out = 0
-        //  5 | in[ 5] = 1 | out = 0
-        //  6 | in[ 6] = 1 | out = 0
-        //  7 | in[ 7] = 1 | out = 0
-        //  8 | in[ 8] = 0 | out = 1
-        //  9 | in[ 9] = 0 | out = 1
-        // 10 | in[10] = 0 | out = 1
-        // 11 | in[11] = 0 | out = 1
-        // 12 | in[12] = 0 | out = 1
-        // 13 | in[13] = 0 | out = 1
-        // 14 | in[14] = 0 | out = 1
-        // 15 | in[15] = 0 | out = 1
+        #(0) $monitor ("%2d | in = %d | out = %d", $time, in[0], out[0]);
+        #(1) $monitor ("%2d | in = %d | out = %d", $time, in[1], out[1]);
+        #(1) $monitor ("%2d | in = %d | out = %d", $time, in[2], out[2]);
+        #(1) $monitor ("%2d | in = %d | out = %d", $time, in[3], out[3]);
+        #(1) $monitor ("%2d | in = %d | out = %d", $time, in[4], out[4]);
+        #(1) $monitor ("%2d | in = %d | out = %d", $time, in[5], out[5]);
+        #(1) $monitor ("%2d | in = %d | out = %d", $time, in[6], out[6]);
+        #(1) $monitor ("%2d | in = %d | out = %d", $time, in[7], out[7]);
+        #(1) $monitor ("%2d | in = %d | out = %d", $time, in[8], out[8]);
+        #(1) $monitor ("%2d | in = %d | out = %d", $time, in[9], out[9]);
+        #(1) $monitor ("%2d | in = %d | out = %d", $time, in[10], out[10]);
+        #(1) $monitor ("%2d | in = %d | out = %d", $time, in[11], out[11]);
+        #(1) $monitor ("%2d | in = %d | out = %d", $time, in[12], out[12]);
+        #(1) $monitor ("%2d | in = %d | out = %d", $time, in[13], out[13]);
+        #(1) $monitor ("%2d | in = %d | out = %d", $time, in[14], out[14]);
+        #(1) $monitor ("%2d | in = %d | out = %d", $time, in[15], out[15]);
+        //  0 | in = 1 | out = 0
+        //  1 | in = 1 | out = 0
+        //  2 | in = 1 | out = 0
+        //  3 | in = 1 | out = 0
+        //  4 | in = 1 | out = 0
+        //  5 | in = 1 | out = 0
+        //  6 | in = 1 | out = 0
+        //  7 | in = 1 | out = 0
+        //  8 | in = 0 | out = 1
+        //  9 | in = 0 | out = 1
+        // 10 | in = 0 | out = 1
+        // 11 | in = 0 | out = 1
+        // 12 | in = 0 | out = 1
+        // 13 | in = 0 | out = 1
+        // 14 | in = 0 | out = 1
+        // 15 | in = 0 | out = 1
     end
 endmodule
