@@ -26,7 +26,6 @@ endmodule
 // behavioural-level
 module or16_behavioural (output reg [15:0] out, input [15:0] a, b);
     always @ (a or b) begin
-        // note: 1'b : 1 bit
         out = a | b;
     end
 endmodule
