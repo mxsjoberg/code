@@ -42,7 +42,7 @@ module test;
 
     // note: #(n) : delay by n timestep (check time scale with $printtimescale)
     initial begin
-        #(0) in[8:0]    = 8'b11111111; // 0, 0, 0, 0, 0, 0, 0, 0
+        #(0) in[7:0]    = 8'b11111111; // 0, 0, 0, 0, 0, 0, 0, 0
         #(1) in[15:8]   = 8'b00000000; // 1, 1, 1, 1, 1, 1, 1, 1
     end
 
