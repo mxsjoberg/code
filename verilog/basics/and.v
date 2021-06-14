@@ -8,7 +8,7 @@ module and_gate (output out, input a, b);
     wire w;
     // operations (note: limited to nand-gates)
     nand(w, a, b);
-    nand(out, w);
+    nand(out, w, w);
 endmodule
 
 // test
