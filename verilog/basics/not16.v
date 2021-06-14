@@ -26,7 +26,7 @@ endmodule
 // behavioural-level
 module not16_behavioural (output reg [15:0] out, input [15:0] in);
     always @ (in) begin
-        // note: 1'b : 1 bit 
+        // note: 1'b : 1 bit
         out = ~in;
     end
 endmodule
