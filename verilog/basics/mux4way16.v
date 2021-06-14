@@ -1,5 +1,9 @@
 /*
-    Mux4Way16(a, b, c, d, sel) : If sel = 00 then out = a else if sel = 01 then out = b else if sel = 10 then out = c else if sel = 11 then out = d
+    Mux4Way16(a, b, c, d, sel) :
+        If sel = 00 then out = a else if
+           sel = 01 then out = b else if
+           sel = 10 then out = c else if
+           sel = 11 then out = d
 */
 
 // mux.v
