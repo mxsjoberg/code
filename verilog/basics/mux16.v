@@ -17,11 +17,6 @@ endmodule
 
 // gate-level
 module mux16_gate (output [15:0] out, input [15:0] a, b, input sel);
-    // wire : internal pin
-    wire [15:0] w1;
-    wire [15:0] w2;
-    wire notsel;
-
     mux_gate Instance0 (out[0], a[0], b[0], sel);
     mux_gate Instance1 (out[1], a[1], b[1], sel);
     mux_gate Instance2 (out[2], a[2], b[2], sel);
