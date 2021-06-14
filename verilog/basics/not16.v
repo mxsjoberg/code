@@ -33,7 +33,6 @@ endmodule
 
 // test
 module test;
-    integer i;
     reg [15:0] in;
     wire [15:0] out;
 
