@@ -32,8 +32,7 @@ endmodule
 // test
 module test;
     reg in, sel;
-    wire a;
-    wire b;
+    wire a, b;
     
     // dmux_gate Instance0 (a, b, in, sel);
     dmux_behavioural Instance0 (a, b, in, sel);
