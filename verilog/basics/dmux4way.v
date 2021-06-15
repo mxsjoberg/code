@@ -34,7 +34,7 @@ module dmux4way_behavioural (output reg a, b, c, d, input in, input [1:0] sel);
         b = 1'b0;
         c = 1'b0;
         d = 1'b0;
-        // note: 1'b : 1 bit
+        // note: 2'b : 2-bit
         if (sel == 2'b00) begin
             a = in;
         end
