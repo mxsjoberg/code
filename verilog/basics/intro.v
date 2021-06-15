@@ -4,7 +4,7 @@
     https://en.wikipedia.org/wiki/Verilog
 */
 
-// module < filename > (< port list >)
+// module < filename > (< ports >)
 module intro;
     initial 
     begin
