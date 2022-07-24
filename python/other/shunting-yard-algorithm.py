@@ -1,47 +1,73 @@
 # https://en.wikipedia.org/wiki/Shunting_yard_algorithm
-INPUT = "3 + 4 * 2 / (1 - 5) ^2 ^3"
+PRECEDENCE = { 'func': 3, '^': 2, '/': 1, '*': 1, '+': 0, '-': 0 }
 
-output = []
-operator = []
+def parse(input_):
+    operator = []
+    output = []
+    tokens = list(input_)
+    while len(tokens) > 0:
+        char = tokens[0]
+        # whitespace
+        # if char.isspace():
+        #     pass
+        # number
+        if char.isnumeric():
+            output.append(char)
+        # function
+        if char.isalpha():
+            function = [char]
+            i = 1
+            while tokens[i].isalpha():
+                function.append(tokens[i])
+                i += 1
+            operator.append(('func', ''.join(function)))
+            # skip
+            tokens = tokens[i - 1:]
+        # operator
+        if char in ['+', '-', '*', '/', '^']:
+            # precedence
+            while len(operator) > 0:
+                op = operator.pop()
+                if op[0] == 'func':
+                    output.append(op[1])
+                elif op not in ['(', '^'] and (op in PRECEDENCE and PRECEDENCE[op] >= PRECEDENCE[char]):
+                    output.append(op)
+                else:
+                    # break
+                    operator.append(op)
+                    break
+            operator.append(char)
+        # left parenthesis
+        if char == '(':
+            operator.append(char)
+        # right parenthesis
+        if char == ')':
+            if '(' not in operator: print("Error: Mismatched parentheses")
+            while len(operator) > 0:
+                op = operator.pop()
+                if op[0] == 'func':
+                    output.append(op[1])
+                elif op != '(':
+                    output.append(op)
+                else:
+                    break
+        tokens = tokens[1:]
 
-precedence = { '^': 2, '/': 1, '*': 1, '+': 0, '-': 0 }
+    # pop operators
+    while len(operator) > 0:
+        op = operator.pop()
+        if op[0] == 'func':
+            output.append(op[1])
+        else:
+            output.append(op)
 
-# read input
-for char in list(INPUT):
-    # whitespace
-    if char.isspace():
-        pass
-    # number
-    if char.isnumeric():
-        output.append(char)
-    # operator
-    if char in ['+', '-', '*', '/', '^']:
-        # precedence
-        while len(operator) > 0:
-            op = operator.pop()
-            if op != '(' and (op != '^' and precedence[op] >= precedence[char]):
-                output.append(op)
-            else:
-                # break
-                operator.append(op)
-                break
-        operator.append(char)
-    # left parenthesis
-    if char == '(':
-        operator.append(char)
-    # right parenthesis
-    if char == ')':
-        if '(' not in operator: print("Error: Mismatched parentheses")
-        while len(operator) > 0:
-            op = operator.pop()
-            if op != '(':
-                output.append(op)
-            else:
-                break
+    return ' '.join(output)
 
-# pop operators
-while len(operator) > 0:
-    output.append(operator.pop())
+assert parse("3 + 4 * 2 / (1 - 5) ^2 ^3") == "3 4 2 * 1 5 - 2 3 ^ ^ / +"
+assert parse("sin(max(2, 3) / 3 * pi)") == "2 3 max 3 / pi * sin"
 
-print(' '.join(output))
+print(parse("3 + 4 * 2 / (1 - 5) ^2 ^3"))
 # 3 4 2 * 1 5 - 2 3 ^ ^ / +
+
+print(parse("sin(max(2, 3) / 3 * pi)"))
+# 2 3 max 3 / pi * sin
