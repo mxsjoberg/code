@@ -1,14 +1,14 @@
 # https://en.wikipedia.org/wiki/Genetic_algorithm
 import random
 import math
-# prettytable
-from prettytable import PrettyTable
+# https://pypi.org/project/tabulate/
+from tabulate import tabulate
 
 # genetic algorithm functions
 # ---------------------------------------------
-# encoding equation: B = x - x_low / ( (x_high - x_low) / ((2 ** m) - 1) )
+# encoding equation: B = (x - x_low) / [(x_high - x_low) / (2 ** m - 1)]
 def encode(x, x_low, x_high, m):
-    decimal = round((x - x_low) / ((x_high - x_low) / ((2 ** m) - 1)))
+    decimal = round((x - x_low) / ((x_high - x_low) / (2 ** m - 1)))
     binary = []
     while decimal >= 1:
         if decimal % 2 == 1:
@@ -27,8 +27,9 @@ assert encode(9, -10, 14, 5) == [1, 1, 0, 0, 1]
 
 # decoding equation: x = x_low + B * ( (x_high - x_low) / ((2 ** m) - 1) )
 def decode(B, x_low, x_high, m):
+    decoded = x_low + int((''.join(map(str, B))), 2) * ((x_high - x_low) / ((2 ** m) - 1))
     
-    return x_low + int((''.join(map(str, B))), 2) * ((x_high - x_low) / ((2 ** m) - 1))
+    return decoded
 
 assert round(decode([1, 0, 0, 0], 10, 20, 4), 2) == 15.33
 
@@ -121,18 +122,6 @@ def update_population(current_population, offsprings, keep, x_range, y_range, m_
 
     return current_population
 
-# helper functions
-# ---------------------------------------------
-# print data as table
-def print_table(data):
-    pt = PrettyTable(('n', 'encoding', 'decoded x, y', 'cost'))
-    for row in data: pt.add_row(row)
-
-    pt.align = 'l'
-    pt.align['n'] = 'c'
-
-    print(pt)
-
 # configuration variables
 # ---------------------------------------------
 M_BITS = 4
@@ -155,32 +144,29 @@ y_range = [-5, 7]
 # crossover
 crossover = [3, 6]
 
-# run
+# generate population
 # ---------------------------------------------
 current_population = generate_population(N_POP, x_range, y_range, M_BITS)
-print_table(current_population)
-# +---+--------------------------+---------------+--------+
-# | n | encoding                 | decoded x, y  | cost   |
-# +---+--------------------------+---------------+--------+
-# | 0 | [0, 1, 0, 0, 0, 0, 0, 0] | [12.67, -5.0] | -63.35 |
-# | 1 | [0, 0, 0, 0, 0, 0, 1, 0] | [10.0, -3.4]  | -34.0  |
-# | 2 | [1, 0, 0, 0, 1, 0, 1, 0] | [15.33, 3.0]  | 45.99  |
-# | 3 | [1, 1, 1, 1, 1, 0, 1, 0] | [20.0, 3.0]   | 60.0   |
-# +---+--------------------------+---------------+--------+
+print(tabulate(current_population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="github"), end="\n\n")
+# |   n | encoding                 | decoded x, y   |    cost |
+# |-----|--------------------------|----------------|---------|
+# |   0 | [0, 0, 1, 1, 0, 0, 0, 0] | [12.0, -5.0]   | -60.000 |
+# |   1 | [0, 1, 0, 0, 0, 1, 0, 0] | [12.67, -1.8]  | -22.810 |
+# |   2 | [0, 0, 1, 0, 0, 1, 0, 0] | [11.33, -1.8]  | -20.390 |
+# |   3 | [1, 0, 1, 0, 1, 1, 1, 0] | [16.67, 6.2]   | 103.350 |
+
 for i in range(MAX_GEN):
-    # generate
+    # generate offsprings
     offsprings = generate_offsprings(current_population, crossover)
     # mutate
     offsprings = mutate(offsprings, MUTATE_RATE, M_BITS)
-    # update
+    # update population
     current_population = update_population(current_population, offsprings, N_KEEP, x_range, y_range, M_BITS)
 
-print_table(current_population)
-# +---+--------------------------+---------------+--------+
-# | n | encoding                 | decoded x, y  | cost   |
-# +---+--------------------------+---------------+--------+
-# | 0 | [1, 1, 1, 1, 0, 0, 0, 0] | [20.0, -5.0]  | -100.0 |
-# | 1 | [1, 1, 1, 1, 0, 0, 0, 0] | [20.0, -5.0]  | -100.0 |
-# | 2 | [1, 1, 1, 1, 0, 0, 0, 0] | [20.0, -5.0]  | -100.0 |
-# | 3 | [1, 1, 1, 0, 0, 0, 0, 0] | [19.33, -5.0] | -96.65 |
-# +---+--------------------------+---------------+--------+
+print(tabulate(current_population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="github"), end="\n\n")
+# |   n | encoding                 | decoded x, y   |     cost |
+# |-----|--------------------------|----------------|----------|
+# |   0 | [1, 1, 1, 1, 0, 0, 0, 0] | [20.0, -5.0]   | -100.000 |
+# |   1 | [1, 1, 1, 1, 0, 0, 0, 0] | [20.0, -5.0]   | -100.000 |
+# |   2 | [1, 1, 1, 1, 0, 0, 0, 0] | [20.0, -5.0]   | -100.000 |
+# |   3 | [1, 1, 1, 1, 0, 0, 0, 0] | [20.0, -5.0]   | -100.000 |
