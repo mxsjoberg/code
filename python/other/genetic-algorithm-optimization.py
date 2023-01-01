@@ -135,7 +135,11 @@ MUTATE_RATE = 0.1
 MAX_GEN = 10000
 
 # cost function
-def f(x, y): return x * y
+# def f(x, y):
+#     return x * y
+
+def f(x, y):
+    return -x * (y / 2 - 10)
 
 # range
 x_range = [10, 20]
