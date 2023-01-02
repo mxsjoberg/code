@@ -15,9 +15,7 @@ def encode(x, x_low, x_high, m):
             binary.append(1)
         else:
             binary.append(0)
-
         decimal = math.floor(decimal / 2)
-
     while len(binary) < 4:
         binary.append(0)
 
@@ -39,22 +37,16 @@ def generate_population(n_pop, x_range, y_range, m_bits):
     for i in range(n_pop):
         x = random.randint(x_range[0], x_range[1])
         y = random.randint(y_range[0], y_range[1])
-        #print(x, y)
-
         # encoded values
         x_encoded = encode(x, x_range[0], x_range[1], m_bits)
         y_encoded = encode(y, y_range[0], y_range[1], m_bits)
-
         # decoded values
         x_decoded = round(decode(x_encoded, x_range[0], x_range[1], m_bits), 2)
         y_decoded = round(decode(y_encoded, y_range[0], y_range[1], m_bits), 2)
-        
         # determine initial cost
         cost = round(f(x_decoded, y_decoded), 2)
-    
         # append to list
         pop_lst.append([i, x_encoded + y_encoded, [x_decoded, y_decoded], cost])
-
     # sort on cost
     pop_lst.sort(key = lambda x: x[3])
     # update index
@@ -81,8 +73,6 @@ def mutate(offsprings, mu, m_bits):
     for i in range(nbits):
         offspring = random.randint(0, len(offsprings) - 1)
         bit = random.randint(0, m_bits * 2 - 1)
-        #print(offspring, bit)
-
         # swap bits
         if offsprings[offspring][bit] == 1:
             offsprings[offspring][bit] = 0
@@ -98,22 +88,17 @@ def update_population(current_population, offsprings, keep, x_range, y_range, m_
         # decoded values
         x_decoded = round(decode(offsprings[i][:4], x_range[0], x_range[1], m_bits), 2)
         y_decoded = round(decode(offsprings[i][4:], y_range[0], y_range[1], m_bits), 2)
-        
         # determine initial cost
         cost = round(f(x_decoded, y_decoded), 2)
-    
         # append to list
         offsprings_lst.append([i, offsprings[i], [x_decoded, y_decoded], cost])
-
     # sort on cost
     offsprings_lst.sort(key = lambda x: x[3])
     # update index
     for i in range(len(offsprings_lst)):
         offsprings_lst[i][0] = i
-
     # discard current population
     current_population[keep:] = offsprings_lst[:keep]
-
     # sort on cost
     current_population.sort(key = lambda x: x[3])
     # update index
