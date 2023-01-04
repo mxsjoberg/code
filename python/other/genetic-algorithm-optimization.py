@@ -84,7 +84,13 @@ def generate_population(n_pop, x_range, y_range, m_bits, seed=False):
     return pop_lst
 
 # test
-example_population = generate_population(n_pop=6, x_range=[5, 20], y_range=[-5, 15], m_bits=4, seed=42)
+example_population = generate_population(
+    n_pop=6,
+    x_range=[5, 20],
+    y_range=[-5, 15],
+    m_bits=4,
+    seed=42)
+
 print(tabulate(example_population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="simple"), end="\n\n")
 #   n  encoding                  decoded x, y       cost
 # ---  ------------------------  --------------  -------
