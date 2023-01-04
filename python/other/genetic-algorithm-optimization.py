@@ -4,6 +4,32 @@ import math
 # https://pypi.org/project/tabulate/
 from tabulate import tabulate
 
+# configuration variables
+# ---------------------------------------------
+M_BITS = 4
+N_POP = 4
+N_KEEP = 2
+MUTATE_RATE = 0.1
+
+#random.seed(1234)
+
+# generations
+MAX_GEN = 10000
+
+# cost function
+# def f(x, y):
+#     return x * y
+
+def f(x, y):
+    return -x * (y / 2 - 10)
+
+# range
+x_range = [10, 20]
+y_range = [-5, 7]
+
+# crossover
+crossover = [3, 6]
+
 # genetic algorithm functions
 # ---------------------------------------------
 # encoding equation: B = (x - x_low) / [(x_high - x_low) / (2 ** m - 1)]
@@ -30,9 +56,11 @@ def decode(B, x_low, x_high, m):
     return decoded
 
 assert round(decode([1, 0, 0, 0], 10, 20, 4), 2) == 15.33
+assert int(decode([1, 1, 0, 0, 1], -10, 14, 5)) == 9
 
 # generate initial population
-def generate_population(n_pop, x_range, y_range, m_bits):
+def generate_population(n_pop, x_range, y_range, m_bits, debug=False):
+    if debug: random.seed(10)
     pop_lst = []
     for i in range(n_pop):
         x = random.randint(x_range[0], x_range[1])
@@ -54,6 +82,18 @@ def generate_population(n_pop, x_range, y_range, m_bits):
         pop_lst[i][0] = i
 
     return pop_lst
+
+# test
+example_population = generate_population(6, [5, 20], [-5, 15], 4, True)
+print(tabulate(example_population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="simple"), end="\n\n")
+#   n  encoding                  decoded x, y       cost
+# ---  ------------------------  --------------  -------
+#   0  [1, 0, 0, 0, 1, 1, 1, 1]  [13.0, 15.0]     32.500
+#   1  [0, 0, 0, 1, 1, 0, 1, 0]  [6.0, 8.33]      35.010
+#   2  [0, 0, 0, 0, 0, 1, 0, 0]  [5.0, 0.33]      49.180
+#   3  [1, 1, 1, 1, 1, 1, 1, 0]  [20.0, 13.67]    63.300
+#   4  [1, 1, 1, 0, 1, 0, 1, 1]  [19.0, 9.67]     98.140
+#   5  [0, 1, 0, 1, 0, 0, 0, 1]  [10.0, -3.67]   118.350
 
 # generate offsprings
 def generate_offsprings(population, crossover):
@@ -106,32 +146,6 @@ def update_population(current_population, offsprings, keep, x_range, y_range, m_
         current_population[i][0] = i
 
     return current_population
-
-# configuration variables
-# ---------------------------------------------
-M_BITS = 4
-N_POP = 4
-N_KEEP = 2
-MUTATE_RATE = 0.1
-
-#random.seed(1234)
-
-# generations
-MAX_GEN = 10000
-
-# cost function
-# def f(x, y):
-#     return x * y
-
-def f(x, y):
-    return -x * (y / 2 - 10)
-
-# range
-x_range = [10, 20]
-y_range = [-5, 7]
-
-# crossover
-crossover = [3, 6]
 
 # generate population
 # ---------------------------------------------
