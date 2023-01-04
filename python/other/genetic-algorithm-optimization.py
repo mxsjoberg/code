@@ -59,8 +59,8 @@ assert round(decode([1, 0, 0, 0], 10, 20, 4), 2) == 15.33
 assert int(decode([1, 1, 0, 0, 1], -10, 14, 5)) == 9
 
 # generate initial population
-def generate_population(n_pop, x_range, y_range, m_bits, debug=False):
-    if debug: random.seed(10)
+def generate_population(n_pop, x_range, y_range, m_bits, seed=False):
+    if seed != False: random.seed(seed)
     pop_lst = []
     for i in range(n_pop):
         x = random.randint(x_range[0], x_range[1])
@@ -84,16 +84,16 @@ def generate_population(n_pop, x_range, y_range, m_bits, debug=False):
     return pop_lst
 
 # test
-example_population = generate_population(6, [5, 20], [-5, 15], 4, True)
+example_population = generate_population(n_pop=6, x_range=[5, 20], y_range=[-5, 15], m_bits=4, seed=42)
 print(tabulate(example_population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="simple"), end="\n\n")
 #   n  encoding                  decoded x, y       cost
 # ---  ------------------------  --------------  -------
-#   0  [1, 0, 0, 0, 1, 1, 1, 1]  [13.0, 15.0]     32.500
-#   1  [0, 0, 0, 1, 1, 0, 1, 0]  [6.0, 8.33]      35.010
-#   2  [0, 0, 0, 0, 0, 1, 0, 0]  [5.0, 0.33]      49.180
-#   3  [1, 1, 1, 1, 1, 1, 1, 0]  [20.0, 13.67]    63.300
-#   4  [1, 1, 1, 0, 1, 0, 1, 1]  [19.0, 9.67]     98.140
-#   5  [0, 1, 0, 1, 0, 0, 0, 1]  [10.0, -3.67]   118.350
+#   0  [0, 0, 1, 0, 1, 1, 1, 0]  [7.0, 13.67]     22.160
+#   1  [0, 0, 1, 1, 1, 1, 0, 1]  [8.0, 12.33]     30.680
+#   2  [0, 0, 1, 1, 0, 0, 0, 0]  [8.0, -5.0]     100.000
+#   3  [1, 0, 0, 0, 0, 1, 0, 1]  [13.0, 1.67]    119.140
+#   4  [0, 1, 1, 1, 0, 0, 1, 1]  [12.0, -1.0]    126.000
+#   5  [1, 1, 0, 1, 0, 0, 0, 1]  [18.0, -3.67]   213.030
 
 # generate offsprings
 def generate_offsprings(population, crossover):
