@@ -119,7 +119,7 @@ def mutate(offsprings, mu, m_bits):
     for i in range(nbits):
         offspring = random.randint(0, len(offsprings) - 1)
         bit = random.randint(0, m_bits * 2 - 1)
-        # swap bits
+        # flip bits
         if offsprings[offspring][bit] == 1:
             offsprings[offspring][bit] = 0
         else:
