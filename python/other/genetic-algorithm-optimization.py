@@ -30,6 +30,9 @@ y_range = [-5, 7]
 # crossover
 crossover = [3, 6]
 
+def print_table(population):
+    print(tabulate(population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="simple"), end="\n\n")
+
 # genetic algorithm functions
 # ---------------------------------------------
 # encoding equation: B = (x - x_low) / [(x_high - x_low) / (2 ** m - 1)]
@@ -94,7 +97,9 @@ example_population = generate_population(
     m_bits=4,
     seed=42)
 
-print(tabulate(example_population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="simple"), end="\n\n")
+print_table(example_population)
+
+# print(tabulate(example_population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="simple"), end="\n\n")
 #   n  encoding                  decoded x, y       cost
 # ---  ------------------------  --------------  -------
 #   0  [0, 0, 1, 0, 1, 1, 1, 0]  [7.0, 13.67]     22.160
@@ -159,7 +164,8 @@ def update_population(current_population, offsprings, keep, x_range, y_range, m_
 # generate population
 # ---------------------------------------------
 current_population = generate_population(N_POP, x_range, y_range, M_BITS)
-print(tabulate(current_population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="simple"), end="\n\n")
+print_table(current_population)
+# print(tabulate(current_population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="simple"), end="\n\n")
 # |   n | encoding                 | decoded x, y   |    cost |
 # |-----|--------------------------|----------------|---------|
 # |   0 | [0, 0, 1, 1, 0, 0, 0, 0] | [12.0, -5.0]   | -60.000 |
@@ -175,7 +181,8 @@ for i in range(MAX_GEN):
     # update population
     current_population = update_population(current_population, offsprings, N_KEEP, x_range, y_range, M_BITS)
 
-print(tabulate(current_population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="simple"), end="\n\n")
+print_table(current_population)
+# print(tabulate(current_population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="simple"), end="\n\n")
 # |   n | encoding                 | decoded x, y   |     cost |
 # |-----|--------------------------|----------------|----------|
 # |   0 | [1, 1, 1, 1, 0, 0, 0, 0] | [20.0, -5.0]   | -100.000 |
