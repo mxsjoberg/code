@@ -21,7 +21,7 @@ MAX_GEN = 10000
 #     return x * y
 
 def f(x, y):
-    return -x * (y / 2 - 10)
+    return -x * ((y / 2) - 10)
 
 # range
 x_range = [10, 20]
@@ -60,7 +60,10 @@ assert int(decode([1, 1, 0, 0, 1], -10, 14, 5)) == 9
 
 # generate initial population
 def generate_population(n_pop, x_range, y_range, m_bits, seed=False):
-    if seed != False: random.seed(seed)
+    if seed != False:
+        random.seed(seed)
+    else:
+        random.seed(None)
     pop_lst = []
     for i in range(n_pop):
         x = random.randint(x_range[0], x_range[1])
@@ -156,7 +159,7 @@ def update_population(current_population, offsprings, keep, x_range, y_range, m_
 # generate population
 # ---------------------------------------------
 current_population = generate_population(N_POP, x_range, y_range, M_BITS)
-print(tabulate(current_population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="github"), end="\n\n")
+print(tabulate(current_population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="simple"), end="\n\n")
 # |   n | encoding                 | decoded x, y   |    cost |
 # |-----|--------------------------|----------------|---------|
 # |   0 | [0, 0, 1, 1, 0, 0, 0, 0] | [12.0, -5.0]   | -60.000 |
@@ -172,7 +175,7 @@ for i in range(MAX_GEN):
     # update population
     current_population = update_population(current_population, offsprings, N_KEEP, x_range, y_range, M_BITS)
 
-print(tabulate(current_population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="github"), end="\n\n")
+print(tabulate(current_population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="simple"), end="\n\n")
 # |   n | encoding                 | decoded x, y   |     cost |
 # |-----|--------------------------|----------------|----------|
 # |   0 | [1, 1, 1, 1, 0, 0, 0, 0] | [20.0, -5.0]   | -100.000 |
