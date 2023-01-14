@@ -2,6 +2,13 @@
 import random
 import math
 
+# constant inertia weight
+weight = 0.5
+# cognative constant
+c_1 = 1
+# social constant
+c_2 = 2
+
 def create_swarm(x_0, n_par):
     dimensions = len(x_0)
     swarm = []
@@ -26,18 +33,26 @@ def create_swarm(x_0, n_par):
 
     return swarm
 
+def update_velocity(velocity, global_pos, position):
+    r_1 = random.random()
+    r_2 = random.random()
+    # update velocity
+    velocity_cognative = c_1 * r_1 * (global_pos - position)
+    velocity_social = c_2 * r_2 * (global_pos - position)
+    velocity = weight * velocity + velocity_cognative + velocity_social
+    
+    return velocity
+
+def update_position(position, velocity):
+    position = position + velocity
+    
+    return position
+
 def optimize(f, swarm, bounds, max_iterations, global_best=-1, global_pos=-1):
-    dimensions = swarm[0][0]
-    # constant inertia weight
-    weight = 0.5
-    # cognative constant
-    c_1 = 1
-    # social constant
-    c_2 = 2
     for i in range(max_iterations):
+        dimensions = swarm[0][0]
         # iterate particles and evaluate cost function
         for j in range(0, len(swarm)):
-            # dimensions = swarm[0][0]
             position = swarm[j][1]
             position_best = swarm[j][2]
             velocity = swarm[j][3]
@@ -52,14 +67,9 @@ def optimize(f, swarm, bounds, max_iterations, global_best=-1, global_pos=-1):
                 global_pos = list(position)
                 global_best = float(error)
             for i in range(0, dimensions):
-                r_1 = random.random()
-                r_2 = random.random()
-                # update velocity
-                velocity_cognative = c_1 * r_1 * (global_pos[i] - position[i])
-                velocity_social = c_2 * r_2 * (global_pos[i] - position[i])
-                velocity[i] = weight * velocity[i] + velocity_cognative + velocity_social
-                # update position
-                position[i] = position[i] + velocity[i]
+                velocity[i] = update_velocity(velocity[i], global_pos[i], position[i])
+                position[i] = update_position(position[i], velocity[i])
+                # check bounds
                 if bounds:
                     # maximum position
                     if (position[i] > bounds[i][1]):
@@ -67,9 +77,10 @@ def optimize(f, swarm, bounds, max_iterations, global_best=-1, global_pos=-1):
                     # minimum position
                     if (position[i] < bounds[i][0]):
                         position[i] = bounds[i][0]
-        # result
+        # result (global best)
         result = (round(global_best, 2), [])
         for i in range(0, dimensions):
+            # best position (i.e. x-value)
             result[1].append(round(global_pos[i], 2))
 
     return result
