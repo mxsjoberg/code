@@ -4,36 +4,45 @@ MAX_ITERATIONS = 50
 
 random.seed(1234)
 
+# constant inertia weight
+weight = 0.5
+# cognative constant
+c_1 = 1
+# social constant
+c_2 = 2
+
 def generate_swarm(x_0, n_par):
+    # dimensions (number of variables)
     dimensions = len(x_0)
     swarm = []
     # generate particles
-    for i in range(0, n_par):        
-        # particle positions
+    for i in range(0, n_par):
         position = []
         # best position
         position_best = -1
         # particle velocity
         velocity = []
-        # particle error
+        # particle error (cost)
         error = -1
-        # best
+        # best error (cost)
         error_best = error
+        # position and velocity
         for i in range(0, dimensions):
-            velocity.append(random.uniform(-1, 1))
             position.append(x_0[i])
+            velocity.append(random.uniform(-1, 1))
         # append particle
-        swarm.append([dimensions, position, position_best, velocity, error, error_best])
+        swarm.append({
+            "dimensions": dimensions,
+            "position": position,
+            "position_best": position_best,
+            "velocity": velocity,
+            "error": error,
+            "error_best": error_best
+        })
 
     return swarm
 
 def update_velocity(velocity, position, position_best, global_pos):
-    # constant inertia weight
-    weight = 0.5
-    # cognative constant
-    c_1 = 1
-    # social constant
-    c_2 = 2
     # random bias
     r_1 = random.random()
     r_2 = random.random()
@@ -49,43 +58,38 @@ def update_position(position, velocity):
     
     return position
 
-# TODO: clean this up! maybe dict for readability?
 def iterate_swarm(f, swarm, bounds=None, global_best=-1, global_pos=-1):
-    dimensions = swarm[0][0]
     # iterate particles and evaluate cost function
     for j in range(0, len(swarm)):
-        position = swarm[j][1]
-        # position_best = swarm[j][2]
-        # velocity = swarm[j][3]
-        error = f(position)
-        error_best = swarm[j][5]
-        # update individual best if current position is best
+        dimensions = swarm[j]["dimensions"]
+        position = swarm[j]["position"]
+        error_best = swarm[j]["error_best"]
+        # evaluate new error (cost)
+        error = swarm[j]["error"] = f(position)
+        # update local best position if current position gives better local error
         if (error < error_best or error_best == -1):
-            swarm[j][2] = position
-            swarm[j][5] = error
-        # update error
-        swarm[j][4] = error
-        # 
-        position_best = swarm[j][2]
-        velocity = swarm[j][3]
-        # update global best if current particle is best
+            swarm[j]["position_best"] = position
+            swarm[j]["error_best"] = error
+        position_best = swarm[j]["position_best"]
+        velocity = swarm[j]["velocity"]
+        # update global best if position of current particle gives best global error
         if (error < global_best or global_best == -1):
             global_pos = list(position)
             global_best = float(error)
+        # update particle velocity and position
         for i in range(0, dimensions):
             velocity[i] = update_velocity(velocity[i], position[i], position_best[i], global_pos[i])
-            # velocity[i] = update_velocity(velocity[i], position[i])
             position[i] = update_position(position[i], velocity[i])
             # check bounds
             if bounds:
-                # maximum position
+                # max value for position
                 if (position[i] > bounds[i][1]):
                     position[i] = bounds[i][1]
-                # minimum position
+                # min value for position
                 if (position[i] < bounds[i][0]):
                     position[i] = bounds[i][0]
     # return
-    return swarm, global_best, global_pos
+    return swarm, round(global_best, 2), [round(pos, 2) for pos in global_pos]
 
 # # minimize x^5 - 3x^4 + 5 over [0, 4]
 # # note that x: [x_1, x_2, ..., x_n]
@@ -112,8 +116,8 @@ swarm = generate_swarm(x_0=[5, 5], n_par=15)
 for i in range(MAX_ITERATIONS):
     swarm, global_best, global_pos = iterate_swarm(f, swarm, global_best=global_best, global_pos=global_pos)
 print((global_best, global_pos))
-# (-9.333333333218729, [0.6666736996356956, -1.666654346375958])
+# (-9.33, [0.67, -1.67])
 
-# assert (global_best, global_pos) == (-9.333333329790616, [0.6667345761501654, -1.6666235499265152])
+assert (global_best, global_pos) == (-9.33, [0.67, -1.67])
 
 
