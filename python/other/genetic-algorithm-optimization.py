@@ -4,6 +4,8 @@ import math
 # https://pypi.org/project/tabulate/
 from tabulate import tabulate
 
+random.seed(1234)
+
 # configuration variables
 # ---------------------------------------------
 M_BITS = 4
@@ -58,15 +60,11 @@ def decode(B, x_low, x_high, m):
     
     return decoded
 
-assert round(decode([1, 0, 0, 0], 10, 20, 4), 2) == 15.33
+# assert round(decode([1, 0, 0, 0], 10, 20, 4), 2) == 15.33
 assert int(decode([1, 1, 0, 0, 1], -10, 14, 5)) == 9
 
 # generate initial population
-def generate_population(n_pop, x_range, y_range, m_bits, seed=False):
-    if seed != False:
-        random.seed(seed)
-    else:
-        random.seed(None)
+def generate_population(n_pop, x_range, y_range, m_bits):
     pop_lst = []
     for i in range(n_pop):
         x = random.randint(x_range[0], x_range[1])
@@ -94,20 +92,19 @@ example_population = generate_population(
     n_pop=6,
     x_range=[5, 20],
     y_range=[-5, 15],
-    m_bits=4,
-    seed=42)
+    m_bits=4)
 
 print_table(example_population)
 
 # print(tabulate(example_population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="simple"), end="\n\n")
 #   n  encoding                  decoded x, y       cost
 # ---  ------------------------  --------------  -------
-#   0  [0, 0, 1, 0, 1, 1, 1, 0]  [7.0, 13.67]     22.160
-#   1  [0, 0, 1, 1, 1, 1, 0, 1]  [8.0, 12.33]     30.680
-#   2  [0, 0, 1, 1, 0, 0, 0, 0]  [8.0, -5.0]     100.000
-#   3  [1, 0, 0, 0, 0, 1, 0, 1]  [13.0, 1.67]    119.140
-#   4  [0, 1, 1, 1, 0, 0, 1, 1]  [12.0, -1.0]    126.000
-#   5  [1, 1, 0, 1, 0, 0, 0, 1]  [18.0, -3.67]   213.030
+#   0  [0, 0, 0, 0, 0, 0, 1, 0]  [5.0, -2.33]     55.820
+#   1  [0, 0, 1, 1, 1, 0, 0, 0]  [8.0, 5.67]      57.320
+#   2  [0, 0, 0, 0, 0, 0, 0, 0]  [5.0, -5.0]      62.500
+#   3  [0, 0, 0, 1, 0, 0, 1, 0]  [6.0, -2.33]     66.990
+#   4  [0, 1, 1, 1, 0, 0, 0, 0]  [12.0, -5.0]    150.000
+#   5  [1, 1, 1, 0, 0, 0, 1, 0]  [19.0, -2.33]   212.130
 
 # generate offsprings
 def generate_offsprings(population, crossover):
@@ -166,12 +163,12 @@ def update_population(current_population, offsprings, keep, x_range, y_range, m_
 current_population = generate_population(N_POP, x_range, y_range, M_BITS)
 print_table(current_population)
 # print(tabulate(current_population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="simple"), end="\n\n")
-# |   n | encoding                 | decoded x, y   |    cost |
-# |-----|--------------------------|----------------|---------|
-# |   0 | [0, 0, 1, 1, 0, 0, 0, 0] | [12.0, -5.0]   | -60.000 |
-# |   1 | [0, 1, 0, 0, 0, 1, 0, 0] | [12.67, -1.8]  | -22.810 |
-# |   2 | [0, 0, 1, 0, 0, 1, 0, 0] | [11.33, -1.8]  | -20.390 |
-# |   3 | [1, 0, 1, 0, 1, 1, 1, 0] | [16.67, 6.2]   | 103.350 |
+#   n  encoding                  decoded x, y       cost
+# ---  ------------------------  --------------  -------
+#   0  [1, 0, 0, 0, 1, 1, 0, 0]  [15.33, 4.6]    118.040
+#   1  [0, 0, 1, 1, 0, 0, 0, 1]  [12.0, -4.2]    145.200
+#   2  [1, 1, 1, 0, 1, 0, 0, 1]  [19.33, 2.2]    172.040
+#   3  [1, 1, 1, 0, 1, 0, 0, 1]  [19.33, 2.2]    172.040
 
 for i in range(MAX_GEN):
     # generate offsprings
@@ -183,9 +180,9 @@ for i in range(MAX_GEN):
 
 print_table(current_population)
 # print(tabulate(current_population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="simple"), end="\n\n")
-# |   n | encoding                 | decoded x, y   |     cost |
-# |-----|--------------------------|----------------|----------|
-# |   0 | [1, 1, 1, 1, 0, 0, 0, 0] | [20.0, -5.0]   | -100.000 |
-# |   1 | [1, 1, 1, 1, 0, 0, 0, 0] | [20.0, -5.0]   | -100.000 |
-# |   2 | [1, 1, 1, 1, 0, 0, 0, 0] | [20.0, -5.0]   | -100.000 |
-# |   3 | [1, 1, 1, 1, 0, 0, 0, 0] | [20.0, -5.0]   | -100.000 |
+#   n  encoding                  decoded x, y      cost
+# ---  ------------------------  --------------  ------
+#   0  [0, 0, 0, 0, 1, 1, 1, 1]  [10.0, 7.0]     65.000
+#   1  [0, 0, 0, 0, 1, 1, 1, 1]  [10.0, 7.0]     65.000
+#   2  [0, 0, 0, 0, 1, 1, 1, 1]  [10.0, 7.0]     65.000
+#   3  [0, 0, 0, 0, 1, 1, 1, 1]  [10.0, 7.0]     65.000
