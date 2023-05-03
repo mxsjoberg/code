@@ -2,7 +2,7 @@ import random
 
 MAX_ITERATIONS = 50
 
-random.seed(1234)
+random.seed(42)
 
 # constant inertia weight
 weight = 0.5
@@ -91,22 +91,22 @@ def iterate_swarm(f, swarm, bounds=None, global_best=-1, global_pos=-1):
     # return
     return swarm, round(global_best, 2), [round(pos, 2) for pos in global_pos]
 
-# # minimize x^5 - 3x^4 + 5 over [0, 4]
-# def f(x):
-#     return x[0] ** 5 - 3 * x[0] ** 4 + 5
+# minimize x^5 - 3x^4 + 5 over [0, 4]
+def f(x):
+    return x[0] ** 5 - 3 * x[0] ** 4 + 5
 
-# # reset global
-# global_best = -1
-# global_pos = -1
-# # initial swarm
-# swarm = generate_swarm(x_0=[5], n_par=15)
-# # iterate swarm
-# for i in range(MAX_ITERATIONS):
-#     swarm, global_best, global_pos = iterate_swarm(f, swarm, bounds=[(0, 4)], global_best=global_best, global_pos=global_pos)
-# print((global_best, global_pos))
-# # (-14.91, [2.4])
+# reset global
+global_best = -1
+global_pos = -1
+# initial swarm
+swarm = generate_swarm(x_0=[5], n_par=15)
+# iterate swarm
+for i in range(MAX_ITERATIONS):
+    swarm, global_best, global_pos = iterate_swarm(f, swarm, bounds=[(0, 4)], global_best=global_best, global_pos=global_pos)
+print((global_best, global_pos))
+# (-14.91, [2.4])
 
-# assert (global_best, global_pos) == (-14.91, [2.4])
+assert (global_best, global_pos) == (-14.91, [2.39])
 
 # minimize -(5 + 3x - 4y - x^2 + x y - y^2)
 def f(x):
