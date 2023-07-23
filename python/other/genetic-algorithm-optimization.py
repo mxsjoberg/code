@@ -1,44 +1,34 @@
-# https://en.wikipedia.org/wiki/Genetic_algorithm
+# BGA is a metaheuristic optimization algorithm inspired
+# by the process of natural selection. It is a
+# population-based algorithm that uses a genetic
+# representation of the decision variables to search for
+# the optimal solution.
+
 import random
 import math
 # https://pypi.org/project/tabulate/
 from tabulate import tabulate
 
-random.seed(1234)
+random.seed(42)
 
-# configuration variables
-# ---------------------------------------------
-M_BITS = 4
-N_POP = 4
-N_KEEP = 2
-MUTATE_RATE = 0.1
+# helper function to print as table
+def print_as_table(population):
+    table = tabulate(
+        population,
+        headers=['n', 'encoding', 'decoded x, y', 'cost'],
+        floatfmt=".3f",
+        tablefmt="simple"
+    )
+    print(table, end="\n\n")
 
-#random.seed(1234)
-
-# generations
-MAX_GEN = 10000
-
-# cost function
-# def f(x, y):
-#     return x * y
-
-def f(x, y):
-    return -x * ((y / 2) - 10)
-
-# range
-x_range = [10, 20]
-y_range = [-5, 7]
-
-# crossover
-crossover = [3, 6]
-
-def print_table(population):
-    print(tabulate(population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="simple"), end="\n\n")
-
-# genetic algorithm functions
-# ---------------------------------------------
-# encoding equation: B = (x - x_low) / [(x_high - x_low) / (2 ** m - 1)]
 def encode(x, x_low, x_high, m):
+    """Encode decimal number into binary
+
+    x (int)                 : decimal number
+    x_low (int)             : lower bound of x
+    x_high (int)            : upper bound of x
+    m (int)                 : number of bits
+    """
     decimal = round((x - x_low) / ((x_high - x_low) / (2 ** m - 1)))
     binary = []
     while decimal >= 1:
@@ -54,17 +44,28 @@ def encode(x, x_low, x_high, m):
 
 assert encode(9, -10, 14, 5) == [1, 1, 0, 0, 1]
 
-# decoding equation: x = x_low + B * ( (x_high - x_low) / ((2 ** m) - 1) )
 def decode(B, x_low, x_high, m):
-    decoded = x_low + int((''.join(map(str, B))), 2) * ((x_high - x_low) / ((2 ** m) - 1))
-    
-    return decoded
+    """Decode binary into decimal number
 
-# assert round(decode([1, 0, 0, 0], 10, 20, 4), 2) == 15.33
+    B (list)                : binary number
+    x_low (int)             : lower bound of x
+    x_high (int)            : upper bound of x
+    m (int)                 : number of bits
+    """
+
+    return x_low + int((''.join(map(str, B))), 2) * ((x_high - x_low) / ((2 ** m) - 1))
+
 assert int(decode([1, 1, 0, 0, 1], -10, 14, 5)) == 9
 
-# generate initial population
-def generate_population(n_pop, x_range, y_range, m_bits):
+def generate_population(f, n_pop, x_range, y_range, m_bits):
+    """Generate initial population
+
+    f (function)            : cost function
+    n_pop (int)             : number of population
+    x_range (list)          : range of x
+    y_range (list)          : range of y
+    m_bits (int)            : number of bits
+    """
     pop_lst = []
     for i in range(n_pop):
         x = random.randint(x_range[0], x_range[1])
@@ -87,39 +88,54 @@ def generate_population(n_pop, x_range, y_range, m_bits):
 
     return pop_lst
 
-# test
-example_population = generate_population(
-    n_pop=6,
-    x_range=[5, 20],
-    y_range=[-5, 15],
-    m_bits=4)
-
-print_table(example_population)
-
-# print(tabulate(example_population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="simple"), end="\n\n")
+# example_population = generate_population(
+#     f,
+#     n_pop=6,
+#     x_range=[5, 20],
+#     y_range=[-5, 15],
+#     m_bits=4
+# )
+# print_as_table(example_population)
 #   n  encoding                  decoded x, y       cost
 # ---  ------------------------  --------------  -------
-#   0  [0, 0, 0, 0, 0, 0, 1, 0]  [5.0, -2.33]     55.820
-#   1  [0, 0, 1, 1, 1, 0, 0, 0]  [8.0, 5.67]      57.320
-#   2  [0, 0, 0, 0, 0, 0, 0, 0]  [5.0, -5.0]      62.500
-#   3  [0, 0, 0, 1, 0, 0, 1, 0]  [6.0, -2.33]     66.990
-#   4  [0, 1, 1, 1, 0, 0, 0, 0]  [12.0, -5.0]    150.000
-#   5  [1, 1, 1, 0, 0, 0, 1, 0]  [19.0, -2.33]   212.130
+#   0  [0, 0, 1, 0, 1, 1, 1, 0]  [7.0, 13.67]     22.160
+#   1  [0, 0, 1, 1, 1, 1, 0, 1]  [8.0, 12.33]     30.680
+#   2  [0, 0, 1, 1, 0, 0, 0, 0]  [8.0, -5.0]     100.000
+#   3  [1, 0, 0, 0, 0, 1, 0, 1]  [13.0, 1.67]    119.140
+#   4  [0, 1, 1, 1, 0, 0, 1, 1]  [12.0, -1.0]    126.000
+#   5  [1, 1, 0, 1, 0, 0, 0, 1]  [18.0, -3.67]   213.030
 
-# generate offsprings
 def generate_offsprings(population, crossover):
+    """Generate offsprings
+
+    population (list)       : population
+    crossover (list)        : crossover points
+    """
     n = 0
     offsprings_lst = []
     while n < len(population):
-        offsprings_lst.append(population[n][1][0:crossover[0]] + population[n + 1][1][crossover[0]:crossover[1]] + population[n][1][crossover[1]:])
-        offsprings_lst.append(population[n + 1][1][0:crossover[0]] + population[n][1][crossover[0]:crossover[1]] + population[n + 1][1][crossover[1]:])
+        offsprings_lst.append(
+            population[n][1][0:crossover[0]] +
+            population[n + 1][1][crossover[0]:crossover[1]] +
+            population[n][1][crossover[1]:]
+        )
+        offsprings_lst.append(
+            population[n + 1][1][0:crossover[0]] +
+            population[n][1][crossover[0]:crossover[1]] +
+            population[n + 1][1][crossover[1]:]
+        )
         # pair-wise
         n += 2
 
     return offsprings_lst
 
-# mutate
 def mutate(offsprings, mu, m_bits):
+    """Mutate offsprings
+
+    offsprings (list)       : offsprings
+    mu (float)              : mutation rate
+    m_bits (int)            : number of bits
+    """
     nbits = round(mu * (len(offsprings) * m_bits * 2))
     for i in range(nbits):
         offspring = random.randint(0, len(offsprings) - 1)
@@ -132,8 +148,17 @@ def mutate(offsprings, mu, m_bits):
 
     return offsprings
 
-# update population
-def update_population(current_population, offsprings, keep, x_range, y_range, m_bits):
+def update_population(f, current_population, offsprings, keep, x_range, y_range, m_bits):
+    """Update population
+
+    f (function)                : cost function
+    current_population (list)   : current population
+    offsprings (list)           : offsprings
+    keep (int)                  : number of population to keep
+    x_range (list)              : range of x
+    y_range (list)              : range of y
+    m_bits (int)                : number of bits
+    """
     offsprings_lst = []
     for i in range(len(offsprings)):
         # decoded values
@@ -158,17 +183,29 @@ def update_population(current_population, offsprings, keep, x_range, y_range, m_
 
     return current_population
 
-# generate population
-# ---------------------------------------------
-current_population = generate_population(N_POP, x_range, y_range, M_BITS)
-print_table(current_population)
-# print(tabulate(current_population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="simple"), end="\n\n")
+M_BITS = 4
+N_POP = 4
+N_KEEP = 2
+MUTATE_RATE = 0.1
+# max number of generations
+MAX_GEN = 10000
+# crossover points
+crossover = [3, 6]
+
+# cost function to minimize
+def f(x, y): return -x * ((y / 2) - 10)
+# bounds
+x_range = [10, 20]
+y_range = [-5, 7]
+
+current_population = generate_population(f, N_POP, x_range, y_range, M_BITS)
+print_as_table(current_population)
 #   n  encoding                  decoded x, y       cost
 # ---  ------------------------  --------------  -------
-#   0  [1, 0, 0, 0, 1, 1, 0, 0]  [15.33, 4.6]    118.040
-#   1  [0, 0, 1, 1, 0, 0, 0, 1]  [12.0, -4.2]    145.200
-#   2  [1, 1, 1, 0, 1, 0, 0, 1]  [19.33, 2.2]    172.040
-#   3  [1, 1, 1, 0, 1, 0, 0, 1]  [19.33, 2.2]    172.040
+#   0  [0, 0, 0, 0, 1, 1, 1, 0]  [10.0, 6.2]      69.000
+#   1  [0, 1, 0, 0, 0, 0, 1, 0]  [12.67, -3.4]   148.240
+#   2  [0, 1, 1, 0, 0, 1, 0, 0]  [14.0, -1.8]    152.600
+#   3  [1, 1, 1, 1, 0, 0, 0, 1]  [20.0, -4.2]    242.000
 
 for i in range(MAX_GEN):
     # generate offsprings
@@ -176,10 +213,17 @@ for i in range(MAX_GEN):
     # mutate
     offsprings = mutate(offsprings, MUTATE_RATE, M_BITS)
     # update population
-    current_population = update_population(current_population, offsprings, N_KEEP, x_range, y_range, M_BITS)
+    current_population = update_population(
+        f,
+        current_population,
+        offsprings,
+        N_KEEP,
+        x_range,
+        y_range,
+        M_BITS
+    )
 
-print_table(current_population)
-# print(tabulate(current_population, headers=['n', 'encoding', 'decoded x, y', 'cost'], floatfmt=".3f", tablefmt="simple"), end="\n\n")
+print_as_table(current_population)
 #   n  encoding                  decoded x, y      cost
 # ---  ------------------------  --------------  ------
 #   0  [0, 0, 0, 0, 1, 1, 1, 1]  [10.0, 7.0]     65.000
