@@ -1,25 +1,21 @@
 # https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm
 import numpy as np
-from prettytable import PrettyTable
+from sklearn import datasets
+# https://pypi.org/project/tabulate/
+from tabulate import tabulate
 
 # load iris dataset
-# -----------------------------------------
-from sklearn import datasets
 iris = datasets.load_iris()
-
-# sample test data
-# -----------------------------------------
-S_test = np.array([
+# sample to test classifier
+sample = np.array([
     [1, 9, 0, 4, 5, 3, 2],
     [9, 0, 4, 5, 3, 2, 1],
     [0, 4, 5, 3, 2, 1, 9],
-    [4, 5, 3, 2, 1, 9, 0]]
-)
-S_test = S_test / np.array([2.3, 4, 1.5, 4]).reshape(-1, 1)
-
-# S_test
-S_test = S_test + np.array([4, 2, 1, 0]).reshape(-1, 1)
-S_test = S_test.transpose()
+    [4, 5, 3, 2, 1, 9, 0]
+])
+sample = sample / np.array([2.3, 4, 1.5, 4]).reshape(-1, 1)
+sample = sample + np.array([4, 2, 1, 0]).reshape(-1, 1)
+sample = sample.transpose()
 
 # sklearn
 # -----------------------------------------
@@ -35,34 +31,32 @@ classifier = KNeighborsClassifier(n_neighbors=3, metric='euclidean')
 classifier.fit(X_train, Y_train)
 
 # evaluate
-# Y_prediction = classifier.predict(X_test)
+Y_prediction = classifier.predict(X_test)
 # print(confusion_matrix(Y_test, Y_prediction))
-# print(classification_report(Y_test, Y_prediction))
-# print(accuracy_score(Y_test, Y_prediction))
+print(classification_report(Y_test, Y_prediction))
+#               precision    recall  f1-score   support
 
-# sample classification
-# -----------------------------------------
-Y_prediction = classifier.predict(S_test)
-# print(Y_prediction)
+#            0       1.00      1.00      1.00        11
+#            1       0.91      0.91      0.91        11
+#            2       0.88      0.88      0.88         8
 
-# prettytable
-# -----------------------------------------------------------
-pt = PrettyTable(('sample', 'class'))
-for row in list(zip(np.round(S_test, 4), Y_prediction)): pt.add_row(row)
+#     accuracy                           0.93        30
+#    macro avg       0.93      0.93      0.93        30
+# weighted avg       0.93      0.93      0.93        30
+print(accuracy_score(Y_test, Y_prediction))
+# 0.9333333333333333
 
-pt.align['sample'] = 'l'
-pt.align['class'] = 'c'
+# predict sample
+Y_prediction = classifier.predict(sample)
 
-print(pt)
-
-# +-------------------------------+-------+
-# | sample                        | class |
-# +-------------------------------+-------+
-# | [4.4348 4.25   1.     1.    ] |   0   |
-# | [7.913  2.     3.6667 1.25  ] |   1   |
-# | [4.     3.     4.3333 0.75  ] |   1   |
-# | [5.7391 3.25   3.     0.5   ] |   1   |
-# | [6.1739 2.75   2.3333 0.25  ] |   0   |
-# | [5.3043 2.5    1.6667 2.25  ] |   0   |
-# | [4.8696 2.25   7.     0.    ] |   2   |
-# +-------------------------------+-------+
+table = list(zip([list(np.round(x, 1)) for x in sample], Y_prediction))
+print(tabulate(table, headers=['sample', 'label'], tablefmt="simple"))
+# sample                  label
+# --------------------  -------
+# [4.4, 4.2, 1.0, 1.0]        0
+# [7.9, 2.0, 3.7, 1.2]        1
+# [4.0, 3.0, 4.3, 0.8]        1
+# [5.7, 3.2, 3.0, 0.5]        1
+# [6.2, 2.8, 2.3, 0.2]        0
+# [5.3, 2.5, 1.7, 2.2]        0
+# [4.9, 2.2, 7.0, 0.0]        2
