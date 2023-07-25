@@ -1,5 +1,3 @@
-from dis import dis
-
 def simplify_parse_tree(tree):
     if (isinstance(tree, tuple)):
         # first value in tuple, remaining values in tuple
