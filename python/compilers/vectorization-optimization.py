@@ -3,14 +3,14 @@ import timeit
 from dis import dis
 
 def add_arrays(a, b):
-	result = []
-	for i in range(len(a)):
-		result.append(a[i] + b[i])
-	return result
+    result = []
+    for i in range(len(a)):
+        result.append(a[i] + b[i])
+    return result
 
 # vectorized
 def add_arrays_vectorized(a, b):
-	return np.array(a) + np.array(b)
+    return np.array(a) + np.array(b)
 
 a = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 b = [9, 8, 7, 6, 5, 4, 3, 2, 1]
