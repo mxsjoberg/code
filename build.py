@@ -2,8 +2,6 @@
 
 import os
 
-# os.system("mkdir -p www")
-
 readme = open("README.md", "w+")
 
 # create and write to file index.html
@@ -36,10 +34,6 @@ with open("index.html", "w+") as index:
                     index.write("<h2>" + category + "</h2>")
                     index.write("<div>")
                     readme.write("### " + category + "\n\n")
-                
-                # print metadata of file
-                
-
                 # write link to file
                 index.write("<p><a href='" + root + "/" + file + "'>" + file + "</a></p>")
                 readme.write("* [" + file.split(".")[0] + "](" + root.replace(".", "https://github.com/mixmaester/programming/blob/master") + "/" + file + ")\n")
