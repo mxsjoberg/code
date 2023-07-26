@@ -12,3 +12,4 @@ python/notebooks/.ipynb_checkpoints/*
 python/notebooks/data/*
 *.o
 assembly/intro
+*cifar-10-batches-py*
