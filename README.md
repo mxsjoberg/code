@@ -153,6 +153,7 @@
 * [loop-tiling-optimization](https://github.com/mixmaester/programming/blob/master/python/compilers/loop-tiling-optimization.py)
 * [shunting-yard-algorithm](https://github.com/mixmaester/programming/blob/master/python/compilers/shunting-yard-algorithm.py)
 * [python-to-x86-array-declaration](https://github.com/mixmaester/programming/blob/master/python/compilers/python-to-x86-array-declaration.py)
+* [ast-to-tac-to-llvm](https://github.com/mixmaester/programming/blob/master/python/compilers/ast-to-tac-to-llvm.py)
 * [parallelization-optimization](https://github.com/mixmaester/programming/blob/master/python/compilers/parallelization-optimization.py)
 * [operator-fusion-on-parse-tree](https://github.com/mixmaester/programming/blob/master/python/compilers/operator-fusion-on-parse-tree.py)
 * [vectorization-optimization](https://github.com/mixmaester/programming/blob/master/python/compilers/vectorization-optimization.py)
