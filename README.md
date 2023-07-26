@@ -169,6 +169,13 @@
 * [backpropagation](https://github.com/mixmaester/programming/blob/master/python/machine-learning/backpropagation.py)
 * [gradient-descent-algorithm](https://github.com/mixmaester/programming/blob/master/python/machine-learning/gradient-descent-algorithm.py)
 
+## assembly
+
+
+### x86
+
+* [intro](https://github.com/mixmaester/programming/blob/master/assembly/x86/intro.asm)
+
 ## rust
 
 
@@ -253,7 +260,6 @@
 * [intro](https://github.com/mixmaester/programming/blob/master/cpp/basics/intro.cpp)
 * [read-and-write](https://github.com/mixmaester/programming/blob/master/cpp/basics/read-and-write.cpp)
 * [functions](https://github.com/mixmaester/programming/blob/master/cpp/basics/functions.cpp)
-* [TEST_test](https://github.com/mixmaester/programming/blob/master/cpp/basics/TEST_test.cpp)
 
 ### other
 
@@ -283,14 +289,8 @@
 * [variables](https://github.com/mixmaester/programming/blob/master/c/basics/variables.c)
 * [recursion](https://github.com/mixmaester/programming/blob/master/c/basics/recursion.c)
 * [structures](https://github.com/mixmaester/programming/blob/master/c/basics/structures.c)
-* [TEST_test](https://github.com/mixmaester/programming/blob/master/c/basics/TEST_test.c)
 * [header](https://github.com/mixmaester/programming/blob/master/c/basics/header.c)
 * [for-loop](https://github.com/mixmaester/programming/blob/master/c/basics/for-loop.c)
 * [arithmetics](https://github.com/mixmaester/programming/blob/master/c/basics/arithmetics.c)
 * [memory-management](https://github.com/mixmaester/programming/blob/master/c/basics/memory-management.c)
 * [while-loop](https://github.com/mixmaester/programming/blob/master/c/basics/while-loop.c)
-
-### other
-
-* [OLD_temperature-converter](https://github.com/mixmaester/programming/blob/master/c/other/OLD_temperature-converter.c)
-* [OLD_square-root-checker](https://github.com/mixmaester/programming/blob/master/c/other/OLD_square-root-checker.c)
