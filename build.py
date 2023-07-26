@@ -17,8 +17,8 @@ with open("index.html", "w+") as index:
         # for file in files
         for file in files:
             if file != "build.py" and file.endswith((".c", ".cc", ".cpp", ".pas", ".pl", ".py", ".rs", ".scala", ".v")) and "DRAFT" not in file:
-                # # print folder
                 _, language, category = root.split("/")
+                # programming language
                 if current_lang != language:
                     current_lang = language
                     if not current_lang == "":
@@ -27,6 +27,7 @@ with open("index.html", "w+") as index:
                     index.write("<h1>" + language + "</h1>")
                     index.write("<div>")
                     readme.write("## " + language + "\n\n")
+                # category
                 if current_category != category:
                     current_category = category
                     if not current_category == "":
@@ -35,6 +36,10 @@ with open("index.html", "w+") as index:
                     index.write("<h2>" + category + "</h2>")
                     index.write("<div>")
                     readme.write("### " + category + "\n\n")
+                
+                # print metadata of file
+                
+
                 # write link to file
                 index.write("<p><a href='" + root + "/" + file + "'>" + file + "</a></p>")
                 readme.write("* [" + file.split(".")[0] + "](" + root.replace(".", "https://github.com/mixmaester/programming/blob/master") + "/" + file + ")\n")
