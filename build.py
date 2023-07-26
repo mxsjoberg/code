@@ -6,7 +6,8 @@ readme = open("README.md", "w+")
 
 # create and write to file index.html
 with open("index.html", "w+") as index:
-    index.write("<style>div {column-count: 5} p {margin: 0}</style>")
+    # index.write("<style>div {column-count: 5} p {margin: 0}</style>")
+    index.write("<style>body { font-family: 'Lucida Console', monospace } p { margin: 0; }</style>")
     readme.write("# Programming\n\n")
     current_lang = ""
     current_category = ""
@@ -14,7 +15,7 @@ with open("index.html", "w+") as index:
     for root, dirs, files in os.walk("."):
         # for file in files
         for file in files:
-            if file != "build.py" and file.endswith((".c", ".cc", ".cpp", ".pas", ".pl", ".py", ".rs", ".scala", ".v")) and "DRAFT" not in file:
+            if file != "build.py" and file.endswith((".asm", ".c", ".cc", ".cpp", ".pas", ".pl", ".py", ".rs", ".scala", ".v")) and not file.startswith(("DRAFT", "TEST", "OLD")):
                 _, language, category = root.split("/")
                 # programming language
                 if current_lang != language:
