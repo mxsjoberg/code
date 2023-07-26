@@ -163,6 +163,7 @@
 * [linear-threshold-unit](https://github.com/mixmaester/programming/blob/master/python/machine-learning/linear-threshold-unit.py)
 * [sklearn-k-nearest-neighbors-classifier](https://github.com/mixmaester/programming/blob/master/python/machine-learning/sklearn-k-nearest-neighbors-classifier.py)
 * [widrow-hoff-learning-algorithm](https://github.com/mixmaester/programming/blob/master/python/machine-learning/widrow-hoff-learning-algorithm.py)
+* [pytorch-classifier](https://github.com/mixmaester/programming/blob/master/python/machine-learning/pytorch-classifier.py)
 * [keras-convolutional-neural-network](https://github.com/mixmaester/programming/blob/master/python/machine-learning/keras-convolutional-neural-network.py)
 * [keras-multilayer-perceptron](https://github.com/mixmaester/programming/blob/master/python/machine-learning/keras-multilayer-perceptron.py)
 * [backpropagation](https://github.com/mixmaester/programming/blob/master/python/machine-learning/backpropagation.py)
