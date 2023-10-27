@@ -13,3 +13,4 @@ python/notebooks/data/*
 *.o
 assembly/intro
 *data*
+_bin
