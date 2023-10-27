@@ -26,6 +26,13 @@ int main() {
     }
     // 1 2 3 4 5
 
+    // iterate an array of ints without knowing length
+    int items[] = { 1, 2, 3, 4, 5 };
+    for (int i = 0; i < (sizeof(items) / sizeof(items[0])); i++) {
+        printf("%d ", items[i]);
+    }
+    // 1 2 3 4 5
+
     // while
     int n = 0;
     while (n < 5) {
