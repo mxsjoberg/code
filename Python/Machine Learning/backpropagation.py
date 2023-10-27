@@ -1,7 +1,4 @@
-# Backpropagation is a method used in artificial neural
-# networks to calculate a gradient that is needed in the
-# calculation of the weights to be used in the network. 
-
+# 2021-06
 # https://en.wikipedia.org/wiki/Backpropagation
 
 import numpy as np
@@ -10,12 +7,10 @@ np.random.seed(42)
 
 # https://en.wikipedia.org/wiki/Sigmoid_function
 def sigmoid(x): return 1.0 / (1 + np.exp(-x))
-
 assert(sigmoid(0) == 0.5)
 
 # derivative of sigmoid
 def sigmoid_dx(x): return x * (1.0 - x)
-
 assert(sigmoid_dx(0.5) == 0.25)
 
 # input
@@ -48,7 +43,6 @@ def backpropagation(layer_1, w_1, w_2, x, y, output):
 
     return layer_1, w_1, w_2, x, y, output
 
-# run
 for i in range(1500):
     layer_1, w_1, w_2, output = feedforward(x, w_1, w_2, output)
     layer_1, w_1, w_2, x, y, output = backpropagation(layer_1, w_1, w_2, x, y, output)

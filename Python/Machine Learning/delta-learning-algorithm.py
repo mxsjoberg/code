@@ -1,7 +1,8 @@
+# 2020-10
 # https://en.wikipedia.org/wiki/Delta_rule
+
 import numpy as np
-# https://pypi.org/project/tabulate/
-from tabulate import tabulate
+from tabulate import tabulate # https://pypi.org/project/tabulate/
 
 # initial weights
 w = [1, 0, 0]

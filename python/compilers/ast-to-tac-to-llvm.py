@@ -1,4 +1,9 @@
+# 2023-07
 from mako.template import Template
+
+# AST is tree representation of source code
+# TAC is linear representation of ASTs
+# LLVM IR is linear representation of the TAC
 
 def gen_tac(ast, tmp_counter):
     if isinstance(ast, int):
@@ -60,7 +65,6 @@ def tac_to_llvm(tac):
     code.append("}")
 
     return '\n'.join(code)
-
 
 ast = ["+", 2, ["*", 3, 4]]
 tac = gen_tac(ast, 1)[0]

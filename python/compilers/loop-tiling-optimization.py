@@ -1,3 +1,4 @@
+# 2023-07
 import random
 import timeit
 
@@ -54,3 +55,5 @@ print(timeit.timeit(lambda: matmul(A, B), number=10))
 # 6.854414212051779
 print(timeit.timeit(lambda: matmul_tiled(A, B), number=10))
 # 6.588905839016661
+
+# CPU...

@@ -1,7 +1,4 @@
-# Shunting Yard Algorithm is a method for parsing
-# mathematical expressions specified in infix
-# notation
-
+# 2023-07
 # https://en.wikipedia.org/wiki/Shunting-yard_algorithm
 
 PRECEDENCE = { 'func': 3, '^': 2, '/': 1, '*': 1, '+': 0, '-': 0 }

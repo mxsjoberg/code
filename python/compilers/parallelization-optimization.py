@@ -1,3 +1,5 @@
+# 2023-07
+
 import multiprocessing as mp
 import timeit
 
@@ -39,3 +41,5 @@ if __name__ == '__main__':
     # sum_of_squares: 7.48474136996083
     print(f"sum_of_squares_parallel: {timeit.timeit(lambda: sum_of_squares_parallel(n), number=10)}")
     # sum_of_squares_parallel: 6.641842097043991
+
+    # CPU...
