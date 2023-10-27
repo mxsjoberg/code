@@ -1,11 +1,10 @@
 // 2019-08
-#import <stdio.h>
-#import <stddef.h>
+#include <stdio.h>
+#include <stddef.h>
 
-main() {
+int main() {
     int num = 5;
-    // null pointer
-    int *ip = NULL;
+    int *ip = NULL; // null pointer
 
     printf("%p\n", ip);
     // 0x0 (nil)

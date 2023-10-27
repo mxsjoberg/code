@@ -2,11 +2,18 @@
 #include <stdio.h>
 
 // filename.h
-// const int number = 10;
+/*
+    #ifndef FILENAME_H
+    #define FILENAME_H
+    
+    const int number = 10;
+
+    #endif
+*/
 
 #include "filename.h"
 
-main() {
+int main() {
     printf("%d\n", number);
     // 10
 }

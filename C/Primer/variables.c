@@ -1,24 +1,29 @@
-// OUTSIDE SCOPE: global
-// variable declaration
-extern int x;
-extern char y[];
-extern float z;
-extern double a; // double size of float
+// 2019-08
+#include <stdio.h>
 
-// INSIDE SCOPE: local
-// variable definition
-int x;
+// filename.h
+// extern makes variable global (normally declared in header file)
+extern const int global_num;
 
-// variable definition and initialisation
-char y[] = "String";        // String
-float z = 1.05;             // 1.050000
-double a = 12.5;            // 12.500000
+// #include "filename.h"
 
-// variable initialisation
-x = 6;
+const int global_num = 42;
+char ch[255]; // array of chars is string
+float x;
+double y; // double size of float
 
-// multiple variable definition
-int c, d;
+int main() {
+    printf("%d\n", global_num);
+    // 42
 
-// multiple variable initialisation
-c = d = 6;                  // 6, 6
+    printf("%lu\n", sizeof(x));
+    // 4
+    printf("%lu\n", sizeof(y));
+    // 8
+
+    char ch[] = "this is some text";
+
+    x = y = 1.0;
+    printf("%f, %f\n", x, y);
+    // 1.000000, 1.000000
+}

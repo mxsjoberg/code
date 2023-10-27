@@ -1,28 +1,42 @@
+// 2019-08
+#include <stdio.h>
 #include <string.h>
 
-// NOTE: union is to store different data types in the same memory location
-
-// OUTSIDE SCOPE: define union type
+// union store different types of data in the same memory location
+// note that only one member can store data at a time
 union Data {
-    int i;
-    float f;
+    int number;
+    float value;
     char str[20];
 } data;
 
-// INSIDE SCOPE: use union
-union Data data;
+int main() {
+    union Data data;
 
-printf("%lu\n", sizeof(data));              // 20
+    // size of union is size of largest member
+    printf("%lu\n", sizeof(data));
+    // 20
 
-// specify union data
-data.i = 10;
-printf("%d\n", data.i);                     // 10
+    // assign values
+    data.number = 42;
+    printf("%d\n", data.number);
+    // 42
 
-data.f = 200.00;
-printf("%f\n", data.f);                     // 200.000000
+    // subsequent assignments overwrite previous values
+    data.value = 12.5;
+    printf("%f\n", data.value);
+    // 12.500000
+    
+    printf("%d\n", data.number);
+    // 1095237632 (number is overwritten)
+    
+    // strings are copied with strcpy
+    strcpy(data.str, "this is some text");
+    printf("%s\n", data.str);
+    // this is some text
 
-strcpy(data.str, "This is a string.");
-printf("%s\n", data.str);                   // This is a string.
-
-// new assignment overwrite older
-printf("%d\n", data.i);                     // 1936287828
+    printf("%d\n", data.number);
+    // 1936287860 (number is overwritten)
+    printf("%f\n", data.value);
+    // 18492488542240085843427383574528.000000 (value is overwritten)
+}

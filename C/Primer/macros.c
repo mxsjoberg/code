@@ -1,10 +1,24 @@
 // 2019-08
-#import <stdio.h>
-#import <stddef.h>
+#include <stdio.h>
+#include <stddef.h>
 
-main() {
+// stringify error messages
+#define  error_message(error) \
+   printf("error: " #error "\n")
+
+// if not defined (used in header files to avoid multiple inclusion)
+#ifndef MESSAGE
+#define MESSAGE "This is the message if not already defined."
+#endif
+
+// parameterized macros
+#define square(x) ((x) * (x))
+#define max(x, y) ((x) > (y) ? (x) : (y))
+
+int main() {
+   // built-in macros
    printf("%s\n", __FILE__);
-   // filename.c
+   // macros.c
    printf("%s\n", __DATE__);
    // Aug 21 2019
    printf("%s\n", __TIME__);
@@ -14,27 +28,15 @@ main() {
    printf("%d\n", __STDC__);
    // 1
 
-   // stringify error messages
-   #define  error_message(error) \
-      printf("error: " #error "\n")
-
    error_message("This is an error.");
    // error: "This is an error."
-
-   // if not defined
-   #if !defined (MESSAGE)
-      #define MESSAGE "This is the message if not already defined."
-   #endif
 
    printf("%s\n", MESSAGE);
    // This is the message if not already defined.
 
-   // parameterized macros
-   #define square(x) ((x) * (x))
-   #define MAX(a,b) ((a) > (b) ? (a) : (b))
-
    printf("%d\n", square(2));
    // 4
-   printf("%d\n", MAX(4,5));
+   
+   printf("%d\n", max(4,5));
    // 5
 }

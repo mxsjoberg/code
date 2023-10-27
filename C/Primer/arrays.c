@@ -1,25 +1,31 @@
-#define MAX_STRING_SIZE 40
+// 2019-08
+#include <stdio.h>
 
-// arrays are mutable
-double array_one[] = { 200.0, -2.2, 1.0, 0.0 };
-char array_two[][MAX_STRING_SIZE] = { "REMOVE", "RANDOM" };
+int main() {
+    // array of doubles
+    double doubles[] = { 200.0, -2.2, 1.0, 0.0 };
+    printf("%f\n", doubles[1]);
+    // -2.200000
+    
+    // arrays are mutable
+    doubles[1] = 42;
+    printf("%f\n", doubles[1]);
+    // 42.000000
+    
+    // array of arrays of char with max size 10 (strings)
+    char strings[][10] = { "first", "second" };
+    printf("%s\n", strings[1]);
+    // second
 
-array_one[0]                    // 200.000000
-array_two[1]                    // RANDOM
+    // nd-array of ints
+    int matrix[2][10] = {
+        { 0, 1, 2, 3, 4 },
+        { 5, 6, 7, 8, 9 }
+    };
+    printf("%d\n", matrix[1][2]);
+    // 7
 
-array_one[0] = 50.0;
-array_one[0]                    // 50.000000
-
-// multi-dimensional array
-int array_multi[2][10] = {
-    { 0, 1, 2, 3, 4 },
-    { 5, 6, 7, 8, 9 }
-};
-
-array_multi[1][2]
-// 7
-
-// calculate length based on type
-int length = sizeof(array_one) / sizeof(double);
-length
-// 4
+    // calculate length based on type (in bytes)
+    printf("%lu\n", sizeof(doubles) / sizeof(double));
+    // 4
+}

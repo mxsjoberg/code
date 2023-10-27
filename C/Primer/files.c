@@ -1,23 +1,28 @@
-FILE *file;
+// 2019-08
+#include <stdio.h>
 
-// write to file
-file = fopen("test.txt", "w+");
-fprintf(file, "%s\n", "This is a string.");
+int main() {
+    FILE *file;
 
-// close file
-fclose(file);
+    // write to file
+    file = fopen("_file.txt", "w+");
+    fprintf(file, "%s\n", "Text to write to file.\n Next line.");
+    // close file
+    fclose(file);
 
-// read a file
-char buffer[255];
+    // read file
+    file = fopen("_file.txt", "r");
 
-file = fopen("test.txt", "r");
+    char buffer[255];
+    
+    // stop read after first space
+    // note that reading a word removes it from stream
+    fscanf(file, "%s\n", buffer);
+    printf("%s\n", buffer);
+    // Text
 
-// stops at first space
-fscanf(file, "%s\n", buffer);
-printf("%s\n", buffer);
-// This
-
-// stops at newline
-fgets(buffer, 255, (FILE*)file);
-printf("%s\n", buffer);
-// is a string.
+    // stop read after first newline
+    fgets(buffer, 255, (FILE*) file);
+    printf("%s\n", buffer);
+    // to write to file.
+}
