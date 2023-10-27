@@ -1,13 +1,10 @@
 // 2023-08
-
-/*
-    A linked list implementation in C
-*/
+// linked list implementation in C
 
 #include <stdio.h>
 #include <stdlib.h>
 
-// element is struct with value and pointer to the next element
+// element is struct with a value and a pointer to the next element
 struct Element {
     int value;
     struct Element *next;
@@ -15,15 +12,13 @@ struct Element {
 
 // allocate memory for element
 struct Element *create_element(int value) {
-    struct Element *element = (struct Element*)malloc(sizeof(struct Element));
+    struct Element *element = (struct Element*) malloc(sizeof(struct Element));
+    
     element->value = value;
     element->next = NULL;
+    
     return element;
 }
-
-/*
-    operations on this linked list are insert, remove, and print
-*/
 
 // insert
 void ll_insert(struct Element **element, int value) {
@@ -39,6 +34,7 @@ void ll_insert(struct Element **element, int value) {
         while (current->next != NULL) {
             current = current->next;
         }
+        // insert new element
         current->next = new_element;
     }
 }
@@ -63,6 +59,7 @@ void ll_remove(struct Element **element, int value) {
             free(current);
             return;
         }
+        // update pointers
         previous = current;
         current = current->next;
     }
@@ -76,19 +73,18 @@ void print(struct Element *element) {
         printf("%d\n", current->value);
         current = current->next;
     }
-    printf("NULL\n");
 }
 
 int main() {
     struct Element *ll = NULL;
     
+    // insert
     ll_insert(&ll, 5);
     ll_insert(&ll, 10);
     ll_insert(&ll, 15);
     ll_insert(&ll, 20);
     ll_insert(&ll, 25);
     ll_insert(&ll, 30);
-    
     print(ll);
     // 5
     // 10
@@ -96,15 +92,13 @@ int main() {
     // 20
     // 25
     // 30
-    // NULL
 
+    // remove
     ll_remove(&ll, 15);
     ll_remove(&ll, 30);
-
     print(ll);
     // 5
     // 10
     // 20
     // 25
-    // NULL
 }
