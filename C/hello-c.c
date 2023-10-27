@@ -11,10 +11,9 @@ int main(int argc, char *argv[]) {
             printf("\t%s\n", argv[i]);
         }
     }
-    return 0;
 }
 
-// $ gcc hello-c.c -o _hello; ./_hello
+// $ gcc hello-c.c -o _hello ; ./_hello
 // filename: ./_hello
 
 // $ gcc hello-c.c -o _hello-c.s -S -O0 -masm=intel -fno-stack-protector; cat _hello-c.s
