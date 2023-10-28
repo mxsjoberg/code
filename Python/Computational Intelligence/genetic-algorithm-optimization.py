@@ -1,13 +1,9 @@
-# BGA is a metaheuristic optimization algorithm inspired
-# by the process of natural selection. It is a
-# population-based algorithm that uses a genetic
-# representation of the decision variables to search for
-# the optimal solution.
+# 2023-01
+# https://en.wikipedia.org/wiki/Genetic_algorithm
 
 import random
 import math
-# https://pypi.org/project/tabulate/
-from tabulate import tabulate
+from tabulate import tabulate # https://pypi.org/project/tabulate/
 
 random.seed(42)
 

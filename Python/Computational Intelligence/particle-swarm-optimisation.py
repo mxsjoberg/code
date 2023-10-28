@@ -1,9 +1,12 @@
-# PSO is a population-based stochastic optimization technique
-# inspired by social behavior of bird flocking or fish schooling.
-# It is used to find an optimal solution to a problem by
-# iteratively moving particles through the solution space.
+# 2023-01
+# https://en.wikipedia.org/wiki/Particle_swarm_optimization
 
 import random
+
+random.seed(42)
+
+# feel free to change this to stop at convergence
+MAX_ITERATIONS = 50
 
 # constant inertia weight
 weight = 0.5
@@ -18,7 +21,6 @@ def generate_swarm(x_0, n_par):
     x_0 (list)              : initial position
     n_par (int)             : number of particles
     """
-
     dimensions = len(x_0)
     swarm = []
     # generate particles
@@ -50,13 +52,12 @@ def generate_swarm(x_0, n_par):
 
 def update_velocity(velocity, position, position_best, global_pos):
     """Update particle velocity
-    
+
     velocity (float)        : particle velocity
     position (float)        : particle position
     position_best (float)   : best position
     global_pos (float)      : global best position
     """
-
     # random bias
     r_1 = random.random()
     r_2 = random.random()
@@ -64,30 +65,27 @@ def update_velocity(velocity, position, position_best, global_pos):
     velocity_cognative = c_1 * r_1 * (position_best - position)
     velocity_social = c_2 * r_2 * (global_pos - position)
     velocity = weight * velocity + velocity_cognative + velocity_social
-    
+
     return velocity
 
 def update_position(position, velocity):
     """Update particle position
-    
+
     position (float)        : particle position
     velocity (float)        : particle velocity
     """
-
     position = position + velocity
     return position
 
 def iterate_swarm(f, swarm, bounds=None, global_best=-1, global_pos=-1):
     """Iterate swarm
-    
+
     f (function)            : cost function
     swarm (list)            : list of particles
     bounds (list)           : list of bounds for each dimension
     global_best (float)     : global best error
     global_pos (float)      : global best position
     """
-
-    # iterate particles and evaluate cost function
     for j in range(0, len(swarm)):
         dimensions = swarm[j]["dimensions"]
         position = swarm[j]["position"]
@@ -126,9 +124,6 @@ def iterate_swarm(f, swarm, bounds=None, global_best=-1, global_pos=-1):
                 position[i] = bounds[i][0]
     # return
     return swarm, round(global_best, 2), [round(pos, 2) for pos in global_pos]
-
-MAX_ITERATIONS = 50
-random.seed(42)
 
 # minimize x^5 - 3x^4 + 5 over [0, 4]
 def f(x): return x[0] ** 5 - 3 * x[0] ** 4 + 5
