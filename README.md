@@ -1,4 +1,4 @@
-# notes.michaelsjoberg.com/code
+# Code
 
 Repo for [notes.michaelsjoberg.com/code](https://notes.michaelsjoberg.com/code)
 
