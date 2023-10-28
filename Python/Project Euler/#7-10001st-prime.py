@@ -1,14 +1,16 @@
-# 10001st prime
-#
-# By listing the first six prime numbers: 2, 3, 
-# 5, 7, 11, and 13, we can see that the 6th prime 
-# is 13.
-#
-# What is the 10001st prime number?
-#
-# https://projecteuler.net/problem=7
+# 2020-10
 
-# import math
+"""
+10001st prime
+
+By listing the first six prime numbers: 2, 3, 5, 7,
+11, and 13, we can see that the 6th prime is 13.
+
+What is the 10001st prime number?
+
+# https://projecteuler.net/problem=7
+"""
+
 import numpy as np
 
 # test (too slow)
@@ -41,9 +43,10 @@ import numpy as np
 # assert(n_prime(6) == 13)
 
 # solution
+
 MAX_SIZE = 1000000
 
-# sieve of eratosthenes (genius)
+# sieve of eratosthenes
 def SOE(primelst):
     is_prime = np.ones(MAX_SIZE)
     

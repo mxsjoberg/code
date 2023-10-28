@@ -1,15 +1,19 @@
-# Largest product in grid
-#
-# In the 20x20 grid below, four numbers along a diagonal line
-# have been marked in red.
-#
-# The product of these numbers is 26 * 63 * 78 * 14 = 1788696.
-#
-# What is the greatest product of four adjacent numbers in the 
-# same direction (up, down, left, right, or diagonally) in the 
-# 20x20 grid?
-#
-# https://projecteuler.net/problem=11
+# 2021-03
+
+"""
+Largest product in grid
+
+In the 20x20 grid below, four numbers along a diagonal line
+have been marked in red.
+
+The product of these numbers is 26 * 63 * 78 * 14 = 1788696.
+
+What is the greatest product of four adjacent numbers in the 
+same direction (up, down, left, right, or diagonally) in the 
+20x20 grid?
+
+https://projecteuler.net/problem=11
+"""
 
 import numpy as np
 
