@@ -1,30 +1,19 @@
-def function(arg):
-    '''this is a docstring'''
+# 2018-06
 
-    # do something
-    return
+def power(base, x = 1):
+    """base to the x-th power"""
 
-# example
-def power(base, x):
-    '''multiply base with itself x times'''
+    i = 0
+    while i < x - 1:
+        base += base
+        i += 1
 
-    return base ** x
+    return base
 
-print(power(2, 3))                  # 8
-print(power.__doc__)                # multiply base with itself x times
-
-# default arguments
-def power(base, x = 3):
-    return base ** x
+print(power(2, 8))
+# 256
+print(power.__doc__)
+# base to the x-th power
 
 print(power(2))
-# 8
-
-# multiple return values
-def power(base, x):
-    result = base ** x
-    return result, base
-
-result, base = power(2, 3)
-print(result, base)
-# 8 2
+# 2

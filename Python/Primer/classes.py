@@ -1,30 +1,38 @@
-class Money (object):
+# 2018-11
+
+# class
+class Money(object):
+    # constructor
     def __init__(self, amount, currency):
         self.amount = amount
         self.currency = currency
-
+    # string representation
     def __str__(self):
-        return str(self.amount) + ' ' + self.currency
+        return f"{self.amount} {self.currency}"
 
-# create a new instance of class
-money = Money(220, 'EUR')
+# create new instance of class
+money = Money(220, "EUR")
 money.amount, money.currency
-# (220, 'EUR')
 
 print(money)
 # 220 EUR
+print(money.amount, money.currency)
+# 220 EUR
 
-# subclasses
-class VirtualMoney (Money):
+# subclass
+class VirtualMoney(Money):
     def __init__(self, date):
         self.date = date
+        # inherits amount and currency from Money
 
+    # override string representation
     def __str__(self):
-        return str(self.amount) + ' ' + self.currency + ' (use before ' + self.date + ')'
+        return f"{self.amount} {self.currency} (expire: {self.date})"
 
-virtual_money = VirtualMoney('2018-12-31')
+# create new instance of subclass
+virtual_money = VirtualMoney("2018-12-31")
 virtual_money.amount = 20
-virtual_money.currency = 'DIS'
+virtual_money.currency = "V-Bucks"
 
 print(virtual_money)
-# 20 DIS (use before 2018-12-31)
+# 20 V-Bucks (expire: 2018-12-31)

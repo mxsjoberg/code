@@ -1,3 +1,5 @@
+# 2018-06
+
 numbers = [1, 2, 3, 4]
 
 for number in numbers:
@@ -11,16 +13,26 @@ for i in range(10):
         pass
 
 # iterating dictionaries
-dict = { 'Alpha': 1, 'Beta': 2 }
+dict = { 'a': 1, 'b': 2 }
 
 for key in dict.keys(): print(key)
-# Alpha
-# Beta
+# a
+# b
 
 for value in dict.values(): print(value)
 # 1
 # 2
 
 for key, value in dict.items(): print(key, value)
-# Alpha 1
-# Beta 2
+# a 1
+# b 2
+
+# while
+
+x = 0
+while (x < 10):
+    # do something
+    x += 1
+
+print(x)
+# 10

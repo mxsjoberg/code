@@ -1,3 +1,5 @@
+# 2018-06
+
 from datetime import datetime
 from datetime import timedelta
 
@@ -9,14 +11,18 @@ future = now + timedelta(12)
 print(future)
 # 2018-06-27 18:23:59.351647
 
-print(now.year)                         # 2018
-print(now.month)                        # 6
-print(now.day)                          # 15
-print(now.hour)                         # 18
-print(now.minute)                       # 23
+print(now.year)
+# 2018
+print(now.month)
+# 6
+print(now.day)
+# 15
+print(now.hour)
+# 18
+print(now.minute)
+# 23
 
 # difference between dates
 difference = future - now
-
-print(difference)                       # 12 days, 0:00:00
-print(difference.days)                  # 12
+print(difference.days)
+# 12

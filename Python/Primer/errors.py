@@ -1,14 +1,17 @@
+# 2018-06
+
 try:
-    # do something
-    pass
+    x = 1 / 0 # ops!
 
 except ZeroDivisionError:
-    print('Cannot divide by zero.')
+    print("error: cannot divide by zero")
     # do something
     pass
 
+# general exception
+
 except Exception as e:
-    print('Error: ' + str(e))
+    print(f"error: ${e}")
     # do something
     pass
 

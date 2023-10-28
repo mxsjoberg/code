@@ -1,20 +1,22 @@
-# create file
-with open('test.txt', 'w') as file:
-    pass
+# 2018-06
+
+# write to file
+with open("_file.txt", "w") as file:
+    file.write("this is some text to write\nanother line")
 
 # read from file
-with open('test.txt', 'r') as file:
-    file.read()
+text = ""
+with open("_file.txt", "r") as file:
+    text = file.read()
 
 # or
-content = open('test.txt', 'r').read()
+text = open("_file.txt", "r").read()
+print(text)
+# this is some text to write
+# another line
 
 # read lines
-with open('test.txt', 'r') as file:
+with open("_file.txt", "r") as file:
     for line in file.readlines():
         # do something
         pass
-
-# write to file
-with open('test.txt', 'w') as file:
-    file.write('This is some text to write.')

@@ -1,35 +1,52 @@
+# 2018-06
+
 # sets are unordered collections
-set = {1.0, 10, 'String', (1, 0, 1, 0)}
-print(set)
-# {(1, 0, 1, 0), 1.0, 10, 'String'}
+my_set = {1.0, 10, "String", (1, 0, 1, 0)}
 
-print('String' in set)                  # True
-print('Java' in set)                    # False
+print(my_set)
+# {'String', 1.0, 10, (1, 0, 1, 0)}
+print("String" in my_set)
+# True
 
-# add to set
-set.add('Python')
-print(set)
-# {1.0, 'String', (1, 0, 1, 0), 10, 'Python'}
+# add
+my_set.add("Python")
+print(my_set)
+# {1.0, 'String', 10, (1, 0, 1, 0), 'Python'}
 
-# remove from set
-set.remove('Python')
-print(set)
-# {1.0, 'String', (1, 0, 1, 0), 10}
+# remove
+my_set.remove("String")
+print(my_set)
+# {1.0, 10, (1, 0, 1, 0), 'Python'}
 
 # set operations
 set_one = {1, 2, 3}
 set_two = {3, 4, 5}
 
-print(set_one | set_two)                # {1, 2, 3, 4, 5}   (Union)
-print(set_one & set_two)                # {3}               (Intersection)
-print(set_one - set_two)                # {1, 2}            (Difference)
-print(set_one ^ set_two)                # {1, 2, 4, 5}      (Symmetric difference)
+# union
+print(set_one | set_two)
+# {1, 2, 3, 4, 5}
+
+# Intersection
+print(set_one & set_two)
+# {3}
+
+# Difference
+print(set_one - set_two)
+# {1, 2}
+
+# Symmetric difference
+print(set_one ^ set_two)
+# {1, 2, 4, 5}
 
 # subset and superset
 set_a = {1, 2}
 set_b = {1, 2}
 set_c = {1, 2, 3, 4, 5}
 
-print(set_a < set_b)                    # False             (Strict subset)
-print(set_a <= set_b)                   # True              (Subset)
-print(set_c > set_a)                    # True              (Strict superset)
+# Strict subset
+print(set_a < set_b)
+# False
+
+# Subset
+print(set_a <= set_b)
+# True
