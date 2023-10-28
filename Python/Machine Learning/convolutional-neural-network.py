@@ -1,6 +1,11 @@
 # 2021-05
 # https://en.wikipedia.org/wiki/Convolutional_neural_network
 
+"""
+A convolutional neural network for classifying MNIST data
+using Keras (Tensorflow).
+"""
+
 import os
 import numpy as np
 import matplotlib.pyplot as plt

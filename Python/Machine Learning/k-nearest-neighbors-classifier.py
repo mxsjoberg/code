@@ -1,8 +1,9 @@
+# 2021-05
 # https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm
+
 import numpy as np
 from sklearn import datasets
-# https://pypi.org/project/tabulate/
-from tabulate import tabulate
+from tabulate import tabulate # https://pypi.org/project/tabulate/
 
 # load iris dataset
 iris = datasets.load_iris()

@@ -1,6 +1,11 @@
 # 2020-10
 # https://en.wikipedia.org/wiki/Delta_rule
 
+"""
+Delta learning algorithm is a method used in artificial
+neural networks to adjust weights.
+"""
+
 import numpy as np
 from tabulate import tabulate # https://pypi.org/project/tabulate/
 

@@ -1,7 +1,12 @@
+# 2021-05
 # https://en.wikipedia.org/wiki/Artificial_neuron
+
+"""
+LTU is a simple model of an artificial neuron.
+"""
+
 import numpy as np
-# https://pypi.org/project/tabulate/
-from tabulate import tabulate
+from tabulate import tabulate # https://pypi.org/project/tabulate/
 
 # https://en.wikipedia.org/wiki/Heaviside_step_function
 def H(x, w, threshold=1):

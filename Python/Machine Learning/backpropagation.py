@@ -1,6 +1,11 @@
 # 2021-06
 # https://en.wikipedia.org/wiki/Backpropagation
 
+"""
+Backpropagation is a method used in artificial neural
+networks to adjust weights.
+"""
+
 import numpy as np
 
 np.random.seed(42)

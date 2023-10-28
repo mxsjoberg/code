@@ -1,4 +1,11 @@
+# 2020-10
 # https://en.wikipedia.org/wiki/Gradient_descent
+
+"""
+Gradient descent is an optimization algorithm for finding
+local minimum of a differentiable function.
+"""
+
 import numpy as np
 import random
 
@@ -26,7 +33,7 @@ def gradient_descent(x, y, theta, alpha, m, num_iterations):
         gradient = np.dot(x_transpose, loss) / m
         # update
         theta = theta - alpha * gradient
-    
+
     return theta
 
 def generate_data(num_points, bias, variance):
@@ -45,19 +52,19 @@ def generate_data(num_points, bias, variance):
         x[i][1] = 1
         # target variable
         y[i] = (i + bias) + random.uniform(0, 1) * variance
-        
+
     return x, y
 
+# generate data
 x, y = generate_data(100, 25, 10)
 m, n = np.shape(x)
+# configuration variables
 num_iterations = 10000
 alpha = 0.0005
 theta = np.ones(n)
+# run gradient descent
 theta = gradient_descent(x, y, theta, alpha, m, num_iterations)
-
-# print
 print(theta)
-
 # Iteration: 0, Cost: 3417.449751
 # Iteration: 1, Cost: 3411.478114
 # Iteration: 2, Cost: 3405.518415
