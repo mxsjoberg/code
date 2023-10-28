@@ -1,3 +1,5 @@
+# 2018-06
+
 import re
 
 text = "some random text to test regular expressions"
@@ -10,8 +12,8 @@ pattern = re.compile(pattern_text)
 # search for pattern in text
 re_search = re.search(pattern, text)
 if (re_search):
-	print(re_search.group())
-	# test
+    print(re_search.group())
+    # test
 
 # separate text
 print(re.split(pattern, text))
