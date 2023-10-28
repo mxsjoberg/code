@@ -1,5 +1,12 @@
 # 2023-08
 
+"""
+Constant folding is a form of partial evaluation
+that can be applied to constant expressions to
+reduce the number of instructions in generated
+code.
+"""
+
 import ast
 
 program = """

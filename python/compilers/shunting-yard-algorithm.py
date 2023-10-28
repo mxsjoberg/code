@@ -1,6 +1,11 @@
 # 2023-07
 # https://en.wikipedia.org/wiki/Shunting-yard_algorithm
 
+"""
+Shunting Yard Algorithm is a method for parsing
+mathematical expressions specified in infix notation.
+"""
+
 PRECEDENCE = { 'func': 3, '^': 2, '/': 1, '*': 1, '+': 0, '-': 0 }
 
 def parse(input_):

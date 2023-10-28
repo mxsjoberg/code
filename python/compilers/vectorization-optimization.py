@@ -1,5 +1,11 @@
 # 2023-07
 
+"""
+Vectorization optimization is a technique for optimizing
+programs by transforming sequential operations into
+parallel operations (vector operations).
+"""
+
 import numpy as np
 import timeit
 from dis import dis

@@ -1,5 +1,12 @@
 # 2023-07
 
+"""
+Parallelization optimization is a form of optimization
+that aims to improve program performance by parallelizing
+it, i.e. by splitting the program into smaller parts that
+can be executed at the same time.
+"""
+
 import multiprocessing as mp
 import timeit
 

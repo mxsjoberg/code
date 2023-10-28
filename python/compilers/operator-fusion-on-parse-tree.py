@@ -1,5 +1,11 @@
 # 2023-07
 
+"""
+Operator fusion is a technique to combine or rearrange
+consecutive operations in a parse tree to improve
+efficiency of code execution.
+"""
+
 def simplify_parse_tree(tree):
     if (isinstance(tree, tuple)):
         # first value in tuple, remaining values in tuple
