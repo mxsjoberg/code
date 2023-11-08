@@ -14,3 +14,7 @@ _bin
 Python/Machine-Learning/_data*
 Python/_Data-Science/_spark*
 Python/_Data-Science/_mongodb*
+Cargo.lock
+_Rust/Advanced-Rust-in-60-seconds/target/*
+_Rust/Rust-in-60-seconds/target/*
+_Rust/Rust-macros/target/*
