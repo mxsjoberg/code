@@ -1,4 +1,3 @@
-; 2021-05
 ; x86-64 (intel syntax)
     section .text
     global _main
