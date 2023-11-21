@@ -1,11 +1,4 @@
-# 2023-07
 # https://en.wikipedia.org/wiki/Shunting-yard_algorithm
-
-"""
-Shunting Yard Algorithm is a method for parsing
-mathematical expressions specified in infix notation.
-"""
-
 PRECEDENCE = { 'func': 3, '^': 2, '/': 1, '*': 1, '+': 0, '-': 0 }
 
 def parse(input_):
@@ -15,8 +8,7 @@ def parse(input_):
     while len(tokens) > 0:
         char = tokens[0]
         # number
-        if char.isnumeric():
-            output.append(char)
+        if char.isnumeric(): output.append(char)
         # function
         if char.isalpha():
             function = [char]
@@ -42,27 +34,21 @@ def parse(input_):
                     break
             operator.append(char)
         # left parenthesis
-        if char == '(':
-            operator.append(char)
+        if char == '(': operator.append(char)
         # right parenthesis
         if char == ')':
             if '(' not in operator: print("Error: Mismatched parentheses")
             while len(operator) > 0:
                 op = operator.pop()
-                if op[0] == 'func':
-                    output.append(op[1])
-                elif op != '(':
-                    output.append(op)
-                else:
-                    break
+                if op[0] == 'func': output.append(op[1])
+                elif op != '(': output.append(op)
+                else: break
         tokens = tokens[1:]
     # pop operators
     while len(operator) > 0:
         op = operator.pop()
-        if op[0] == 'func':
-            output.append(op[1])
-        else:
-            output.append(op)
+        if op[0] == 'func': output.append(op[1])
+        else: output.append(op)
 
     return ' '.join(output)
 

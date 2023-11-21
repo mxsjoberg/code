@@ -1,5 +1,3 @@
-# 2023-08
-
 """
 OpenCL can be used to run code on GPUs and other
 accelerators. It's a C API (kernel code looks like 

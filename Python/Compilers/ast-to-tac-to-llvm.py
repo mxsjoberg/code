@@ -1,5 +1,3 @@
-# 2023-07
-
 """
 AST is tree representation of source code
 TAC is linear representation of ASTs

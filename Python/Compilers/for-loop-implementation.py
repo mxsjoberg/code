@@ -1,5 +1,3 @@
-# 2023-09
-
 import timeit
 
 def not_for_loop(index = 0, elements = [], operation = None):
@@ -40,5 +38,3 @@ print(timeit.timeit('for_loop_using_while([1, 2, 3, 4, 5], lambda x: x.__add__(1
 # 0.08992556994780898
 print(timeit.timeit('for_loop([1, 2, 3, 4, 5], lambda x: x.__add__(1))', setup = 'from __main__ import for_loop', number = 100000))
 # 0.08654258819296956
-
-# slow but still...

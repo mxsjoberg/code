@@ -1,5 +1,3 @@
-# 2023-07
-
 """
 Operator fusion is a technique to combine or rearrange
 consecutive operations in a parse tree to improve
@@ -22,11 +20,9 @@ def simplify_parse_tree(tree):
 
 # (1 + 2) * (3 + 4)
 parse_tree = ('*', ('+', 1, 2), ('+', 3, 4))
-print(simplify_parse_tree(parse_tree))
-# 21
+print(simplify_parse_tree(parse_tree)) # 21
 
 compiled = compile('(1 + 2) * (3 + 4)', '<string>', 'eval')
-print(compiled.co_consts[0])
-# 21
+print(compiled.co_consts[0]) # 21
 
 assert simplify_parse_tree(parse_tree) == compiled.co_consts[0]

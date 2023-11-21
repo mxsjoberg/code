@@ -1,5 +1,3 @@
-# 2023-07
-
 """
 Loop tiling optimization is a technique used
 to improve cache efficiency in nested loops.
@@ -59,7 +57,5 @@ B = [[random.random() for _ in range(200)] for _ in range(200)]
 
 print(timeit.timeit(lambda: matmul(A, B), number=10))
 # 6.854414212051779
-print(timeit.timeit(lambda: matmul_tiled(A, B), number=10))
+print(timeit.timeit(lambda: matmul_tiled(A, B), number=10)) # CPU
 # 6.588905839016661
-
-# CPU...

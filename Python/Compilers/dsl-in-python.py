@@ -1,5 +1,3 @@
-# 2023-08
-
 """
 This is how to design and use embedded
 domain-specific languages in Python.
@@ -79,5 +77,4 @@ def interpret(program):
             if kwargs["out"] == "stdin": STDIN = result
             if kwargs["out"] == "stdout": print(result)
 
-interpret(program)
-# 3
+interpret(program) # 3

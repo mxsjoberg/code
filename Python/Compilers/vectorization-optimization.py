@@ -1,5 +1,3 @@
-# 2023-07
-
 """
 Vectorization optimization is a technique for optimizing
 programs by transforming sequential operations into

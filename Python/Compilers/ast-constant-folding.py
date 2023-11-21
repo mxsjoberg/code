@@ -1,5 +1,3 @@
-# 2023-08
-
 """
 Constant folding is a form of partial evaluation
 that can be applied to constant expressions to
