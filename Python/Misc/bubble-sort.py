@@ -1,4 +1,3 @@
-# 2021-04
 # https://en.wikipedia.org/wiki/Bubble_sort
 
 unsorted_list = [14, 33, 27, 35, 10]
@@ -10,5 +9,4 @@ for i in range(len(unsorted_list)):
             unsorted_list[j] = unsorted_list[j + 1]
             unsorted_list[j + 1] = temp
 
-print(unsorted_list)
-# [10, 14, 27, 33, 35]
+print(unsorted_list) # [10, 14, 27, 33, 35]

@@ -1,5 +1,3 @@
-# 2023-04
-
 """
 An ALU is a combinational logic circuit that performs
 arithmetic and bitwise operations on input bits. This

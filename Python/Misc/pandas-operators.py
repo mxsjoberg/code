@@ -1,5 +1,3 @@
-# 2020-10
-
 import pandas as pd
 
 # creating series (one-dimensional array)

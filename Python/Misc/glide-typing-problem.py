@@ -1,5 +1,3 @@
-# 2023-08
-
 """
 Glide typing is the feature on mobile devices that allows
 users to type by swiping across the keyboard. The keyboard
@@ -24,9 +22,7 @@ for word in words:
         col += 1
 
 # all matches
-print(matches)
-# [('hello', 11), ('hop', 12)]
+print(matches) # [('hello', 11), ('hop', 12)]
 
 # first match
-print(matches[0][0])
-# hello
+print(matches[0][0]) # hello

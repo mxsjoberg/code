@@ -1,5 +1,3 @@
-# 2020-10
-
 import numpy as np
 
 # numpy array basics
@@ -7,21 +5,16 @@ import numpy as np
 a = [60, 28, 49, 81]
 b = [55, 634, 704, 2020]
 
-# create numpy array
-A = np.array(a, dtype='i')
-# [60 28 49 81]
+A = np.array(a, dtype='i') # [60 28 49 81]
 
 AB = np.array([a, b])
 # [[  60   28   49   81]
 #  [  55  634  704 2020]]
 
-print(AB.ndim)
-# 2
-print(AB.shape)
-# (2, 4)
+print(AB.ndim) # 2
+print(AB.shape) # (2, 4)
 
-arr_zero = np.zeros(4)
-# [0. 0. 0. 0.]
+arr_zero = np.zeros(4) # [0. 0. 0. 0.]
 
 arr_ones = np.ones((2, 3))
 # [[ 1.  1.  1.]
@@ -37,6 +30,7 @@ arr_log = np.logspace(0, 1, 5)
 # [ 1.          1.77827941  3.16227766  5.62341325 10.        ]
 
 # slicing
+
 print(A[1:3])
 # [28 49]
 print(AB[0:2, 2:4])
@@ -44,45 +38,28 @@ print(AB[0:2, 2:4])
 #  [ 704 2020]]
 
 # reverse order
-print(A[::-1])
-# [81 49 28 60]
+print(A[::-1]) # [81 49 28 60]
 
-# mean
-print(arr_range.mean())
-# 4.5
+print(arr_range.mean()) # 4.5
+print(arr_range.sum()) # 45
+print(AB.min()) # 28
+print(AB.max()) # 2020
 
-# sum
-print(arr_range.sum())
-# 45
-
-# min
-print(AB.min())
-# 28
-
-# max
-print(AB.max())
-# 2020
-
-# sin
 print(np.sin(AB))
 # [[-0.30481062  0.27090579 -0.95375265 -0.62988799]
 #  [-0.99975517 -0.56605794  0.27947339  0.04406199]]
 
-# multiply
 print(np.multiply(a, b))
 # [  3300  17752  34496 163620]
 
-# square root
 print(np.sqrt(b))
 # [ 7.41619849 25.17935662 26.53299832 44.94441011]
 
 # min value in each column
-print(np.minimum(a, b))
-# [55 28 49 81]
+print(np.minimum(a, b)) # [55 28 49 81]
 
 # sum of axis (columns)
-print(np.sum(AB, axis=1))
-# [ 218 3413]
+print(np.sum(AB, axis=1)) # [ 218 3413]
 
 # numpy indexing
 
@@ -108,17 +85,14 @@ print(B[:, [2, -1, 0]])
 
 # elements from A at indices given by fibonacci sequence
 fibseq = np.array([0, 1, 1, 2, 3])
-print(A[fibseq])
-# [ 1  3  3  9 19]
+print(A[fibseq]) # [ 1  3  3  9 19]
 
 # diagonal
 i = np.arange(4)
-print(B[i, i])
-# [ 0  5 10 15]
+print(B[i, i]) # [ 0  5 10 15]
 
 # diagonal of part
-print(B[i[:3], i[:3] + 1])
-# [ 1  6 11]
+print(B[i[:3], i[:3] + 1]) # [ 1  6 11]
 
 # numpy masking
 
@@ -131,29 +105,24 @@ C.shape = (4, 4)
 #  [12 13 14 15]]
 
 # create mask with True
-mask = np.ones(4, dtype=bool)
-# [ True  True  True  True]
+mask = np.ones(4, dtype=bool) # [ True  True  True  True]
 
 # diagonal
-print(C[mask, mask])
-# [ 0  5 10 15]
+print(C[mask, mask]) # [ 0  5 10 15]
 
 # conditional mask
 conditional = (C >= 9)
-print(C[conditional])
-# [ 9 10 11 12 13 14 15]
+print(C[conditional]) # [ 9 10 11 12 13 14 15]
 
 # get all values smaller than 9
-print(C[C < 9])
-# [0 1 2 3 4 5 6 7 8]
+print(C[C < 9]) # [0 1 2 3 4 5 6 7 8]
 
 # get all values smaller than 5 or larger than 10
 print(C[(C < 5) | (C > 10)])
 # [ 0  1  2  3  4 11 12 13 14 15]
 
 # where
-print(C[np.where(C > 10)])
-# [11 12 13 14 15]
+print(C[np.where(C > 10)]) # [11 12 13 14 15]
 
 # get all columns with a value less than 3
 print(C[:, np.where(C < 3)[1]])
@@ -164,22 +133,18 @@ print(C[:, np.where(C < 3)[1]])
 
 # numpy operations
 
-A = np.arange(6)
-# [0 1 2 3 4 5]
-print(A + A)
-# [ 0  2  4  6  8 10]
-print(A - 1)
-# [-1  0  1  2  3  4]
-print(A * 6)
-# [ 0  6 12 18 24 30]
+A = np.arange(6) # [0 1 2 3 4 5]
+print(A + A) # [ 0  2  4  6  8 10]
+print(A - 1) # [-1  0  1  2  3  4]
+print(A * 6) # [ 0  6 12 18 24 30]
 
 # gradient
 X = np.array([2, 4, 5])
 Y = np.array([6, 2, 8])
 print(np.gradient(X))
-# [ 2.   1.5  1. ]      => (4 - 2) / 1, (5 - 2) / 2, (5 - 4)/ 1
+# [ 2.   1.5  1. ] => (4 - 2) / 1, (5 - 2) / 2, (5 - 4)/ 1
 print(np.gradient(Y))
-# [-4.  1.  6.]         => (2 - 6) / 1, (8 - 6) / 2, (8 - 2)/ 1
+# [-4.  1.  6.] => (2 - 6) / 1, (8 - 6) / 2, (8 - 2)/ 1
 
 # numerical derivative
 print(np.gradient(Y) / np.gradient(X))

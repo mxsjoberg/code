@@ -1,5 +1,3 @@
-# 2023-08
-
 """
 Function wrappers can be used to modify behavior of function
 or method. The wraps decorator copies over the function name,
@@ -19,5 +17,4 @@ def logging(func):
 @logging
 def power(base, exp): return base ** exp
 
-power(2, 3)
-# call to power, args: (2, 3), kwargs: {}
+power(2, 3) # call to power, args: (2, 3), kwargs: {}

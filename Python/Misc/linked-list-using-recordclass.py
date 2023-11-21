@@ -1,5 +1,3 @@
-# 2023-08
-
 """
 A linked list is a linear data structure where each element
 is the data and reference to next element. The last element
@@ -48,6 +46,7 @@ class LinkedList:
                 current = current.next
 
 ll = LinkedList()
+
 ll.insert(5)
 ll.insert(10)
 ll.insert(15)
@@ -55,11 +54,9 @@ ll.insert(20)
 ll.insert(25)
 ll.insert(30)
 
-print(ll)
-# [5, 10, 15, 20, 25, 30]
+print(ll) # [5, 10, 15, 20, 25, 30]
 
 ll.remove(15)
 ll.remove(30)
 
-print(ll)
-# [5, 10, 20, 25]
+print(ll) # [5, 10, 20, 25]

@@ -1,5 +1,3 @@
-# 2018-06
-
 from itertools import combinations_with_replacement
 
 my_list = ['A', 'B']

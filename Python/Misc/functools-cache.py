@@ -1,5 +1,3 @@
-# 2023-08
-
 """
 The lru_cache decorator caches the results of a function
 call with a given set of arguments. This is useful for

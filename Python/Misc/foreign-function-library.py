@@ -1,5 +1,3 @@
-# 2023-08
-
 """
 A foreign function library is a library written in
 languages other than the language it is being called
@@ -38,5 +36,4 @@ print(f"the square of {num} is {result}")
 # https://gist.github.com/PewZ/8b473c2a6888c5c528635550d07c6186
 
 libc = ctypes.CDLL('libc.dylib')
-libc.printf(b"hello world\n")
-# hello world
+libc.printf(b"hello world\n") # hello world

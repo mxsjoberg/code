@@ -1,5 +1,3 @@
-# 2018-06
-
 my_list = ["Zero", "One", "Two", "Three", "Four", "Five"]
 
 for item in enumerate(my_list): print(item)

@@ -1,5 +1,3 @@
-# 2023-08
-
 import functools
 import operator
 
@@ -11,10 +9,8 @@ def double(x): return x * 2
 
 # double then square
 op = compose(square, double)
-print(op(5))
-# 100
+print(op(5)) # 100
 
 # passing operator as argument
 numbers = [1, 2, 3, 4, 5]
-print(functools.reduce(operator.add, numbers))
-# 15
+print(functools.reduce(operator.add, numbers)) # 15
