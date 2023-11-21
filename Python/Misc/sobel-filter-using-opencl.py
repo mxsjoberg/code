@@ -1,5 +1,3 @@
-# 20023-08
-
 """
 A Sobel filter is an edge detection filter. It's a 3x3
 convolution commonly used in image processing.
