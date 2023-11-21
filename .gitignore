@@ -18,3 +18,4 @@ Cargo.lock
 _Rust/Advanced-Rust-in-60-seconds/target/*
 _Rust/Rust-in-60-seconds/target/*
 _Rust/Rust-macros/target/*
+python/ml/_data/*
