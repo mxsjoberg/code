@@ -2,9 +2,7 @@
 #include <csignal>
 #include <unistd.h>
 
-// declare signal handler
-void terminate(int sig);
-// define signal handler
+// signal handler
 void terminate(int sig) {
    std::cout << "\nsignal: " << sig << std::endl;
    exit(sig);
@@ -16,10 +14,10 @@ int main() {
 
    // keyboard interrupt
    while(1) {
-       std::cout << "stuck doing something really hard..." << std::endl;
+       std::cout << "stuck doing something really hard... (press ^C to exit)" << std::endl;
        sleep(5);
    }
-   // stuck doing something really hard...
-   // ^C (ctrl+c)
+   // stuck doing something really hard... (press ^C to exit)
+   // ^C
    // signal: 2
 }
