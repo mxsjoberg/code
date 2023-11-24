@@ -1,23 +1,20 @@
 #include <iostream>
 #include <pthread.h>
 
-#define MAX_THREADS 5
+constexpr int max_threads = 5;
 
-// declare multithreading function
-void* print(void* thread_id);
-// define multithreading function
-void* print(void* thread_id) {
+void *print(void *thread_id) {
     long tid = (long) thread_id;
-    std::cout << "tid: " << tid << std::endl;
+    std::cout << "thread_id: " << tid << std::endl;
     // terminate
     pthread_exit(NULL);
 };
 
 int main() {
-    pthread_t threads[MAX_THREADS];
-    int thread[MAX_THREADS];
+    pthread_t threads[max_threads];
+    int thread[max_threads];
 
-    for (int i = 0; i < MAX_THREADS; i++) {
+    for (int i = 0; i < max_threads; i++) {
         thread[i] = i;
         std::cout << "creating thread:" << thread[i] << std::endl;
         // create thread using pthread_create(thread, attr, start_routine, arg)
@@ -31,12 +28,12 @@ int main() {
     pthread_exit(NULL);
     // creating thread:0
     // creating thread:1
-    // tid: 140701949382784
-    // tid: 140701949382788
+    // thread_id: 140701949382784
+    // thread_id: 140701949382788
     // creating thread:2
     // creating thread:3
-    // tid: 140701949382792
+    // thread_id: 140701949382792
     // creating thread:4
-    // tid: 140701949382796
-    // tid: 140701949382800
+    // thread_id: 140701949382796
+    // thread_id: 140701949382800
 }
