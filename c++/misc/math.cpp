@@ -10,14 +10,12 @@ int main() {
     std::cout << isinf(INFINITY) << std::endl; // 1
     std::cout << isfinite(42) << std::endl; // 1
 
-    // trigonometric functions
-    
+    // trigonometric
     std::cout << cos(42) << std::endl; // -0.399985
     std::cout << sin(42) << std::endl; // -0.916522
     std::cout << tan(42) << std::endl; // 2.29139
     
-    // exponential and logarithmic functions
-    
+    // exponential and logarithmic
     std::cout << log10(10) << std::endl; // 1
     std::cout << log2(8) << std::endl; // 3
     std::cout << exp(2) << std::endl; // 7.38906
@@ -28,14 +26,12 @@ int main() {
     // natural logarithm
     std::cout << log(10) << std::endl; // 2.30259
     
-    // power functions
-    
+    // power and root
     std::cout << pow(2, 3) << std::endl; // 8
     std::cout << sqrt(16) << std::endl; // 4
     std::cout << cbrt(27) << std::endl; // 3
     
-    // rounding and remainder functions
-    
+    // rounding and remainder
     std::cout << ceil(41.5) << std::endl; // 42
     std::cout << floor(42.5) << std::endl; // 42
     std::cout << trunc(42.5) << std::endl; // 42
@@ -48,20 +44,14 @@ int main() {
     // round to nearby integer
     std::cout << nearbyint(42.5) << std::endl; // 42
     
-    // manipulation functions
-    
+    // manipulation
     std::cout << copysign(42, -1) << std::endl; // -42
     std::cout << nan("42") << std::endl; // nan
     
-    // minimum, maximum, difference functions
-
-    // positive difference
+    // minimum, maximum, difference
     std::cout << fdim(52, 10) << std::endl; // 42
-
     std::cout << fmax(42, 10) << std::endl; // 42
     std::cout << fmin(42, 10) << std::endl; // 10
-    
-    // other functions
     
     // absolute value (can handle floating-point)
     std::cout << fabs(-12.5) << std::endl; // 12.5
