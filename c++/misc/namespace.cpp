@@ -1,16 +1,12 @@
 #include <iostream>
 
 // define namespace
-namespace env {
-    void first() {
-        std::cout << "called: first() in env" << std::endl;
-    }
-    void second() {
-        std::cout << "called: second() in env" << std::endl;
+namespace my_functions {
+    void function() {
+        std::cout << "called: my_functions::function" << std::endl;
     }
 }
 
 int main() {
-    env::first(); // called: first() in env
-    env::second(); // called: second() in env
+    my_functions::function(); // called: my_functions::function
 }
