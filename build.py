@@ -77,28 +77,37 @@ with open("index.html", "w+") as index:
             font-family: "Fira Mono"; src: local("Fira Mono Bold"), url("__fonts/FiraMono-Bold.ttf");
             font-weight: bold; font-style: normal;
         }
-        body { font-size: 16px; font-family: "Fira Mono", monospace; background: black; color: white; }
-        h1 a:first-child { margin-left: 12px; }
-        p { margin: 0; margin-bottom: 4px; }
-        a { display: inline-block; cursor: pointer; color: white; margin-right:12px; text-underline-position: from-font; }
-        a.dotted { color: cyan; text-decoration-style: dotted; }
-        a.dotted:hover { background: rgb(0 255 255 / 20%); text-decoration-style: solid; }
-        pre { background: midnightblue; border: 1px solid slategrey; font-size: 12px; padding: 4px; white-space: break-spaces; line-break: anywhere; margin: 0; height: 320px; }
-        hr { margin: 4px 0 !important; opacity: 1; color: white; border-width: 2px; }
-        hr.muted { margin: 4px 0 !important; opacity: 1; color: slategrey; border-width: 1px; }
+        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar-track { background: #49595c; }
+        ::-webkit-scrollbar-thumb { background: #a8ced0; }
+        ::-webkit-scrollbar-thumb:hover { background: #eea8cb; }
+        body { font-size: 16px; font-family: "Fira Mono", monospace; background: #0d1117; color: white; }
+        h1 { margin: 0.5rem, 0; }
+        h1 a:first-child { margin-left: 1rem; }
+        h2 { margin: 0.5rem, 0; }
+        p { margin: 0; }
+        .row .wrapper { padding: 0.5rem 0; }
+        .row .wrapper p { margin-left: 1rem; }
+        a { display: inline-block; cursor: pointer; color: white; margin-right: 1rem; text-underline-position: from-font; }
+        a.dotted { color: #a8ced0; text-decoration-style: dotted; }
+        a.dotted:hover { color: #eea8cb; text-decoration-style: solid; }
+        pre { background: #161b22; color: #a8ced0; border: 2px solid #49595c; border-radius: 0.5rem; font-size: 12px; padding: 0.5rem; white-space: break-spaces; line-break: anywhere; margin: 0; height: 320px; scroll: none; }
+        pre::-webkit-scrollbar { width: 0; }
+        hr { margin: 4px 0 !important; opacity: 1; border-color: #49595c; border-width: 2px; }
+        hr.muted { margin: 4px 0 !important; opacity: 1; border-color: #3f4c52; border-width: 1px; }
         .wrapper { margin: 0 -4px; padding-bottom: 4px; }
-        .wrapper .box { padding: 0 2px; }
+        .wrapper .box { padding: 0 4px; }
         .float-right { float: right; }
-        div.box.focus pre { border: 4px solid hotpink; }
+        div.box.focus pre { border: 2px solid #eea8cb; }
         /* code highlight */
-        .highlight .k { color: hotpink !important; }
-        .highlight .n { color: navajowhite !important; }
+        .highlight .k { color: #eea8cb !important; }
+        .highlight .n { color: white !important; }
         .highlight .kn { color: white !important; }
-        .highlight .s1, .highlight .si { color: slategrey !important; }
-        .highlight .c1, .highlight .cm { color: slategrey !important; }
-        .highlight .mi { color: limegreen !important; }
-        .highlight .nf, .highlight .nb { color: limegreen !important; }
-        .highlight .nc { color: limegreen !important; font-weight: bold; }
+        .highlight .s1, .highlight .si { color: navajowhite !important; }
+        .highlight .c1, .highlight .cm { color: #3f4c52 !important; }
+        .highlight .mi { color: white !important; }
+        .highlight .nf, .highlight .nb { font-weight: bold; }
+        .highlight .nc { color: white !important; font-weight: bold; }
     </style>""")
     # javascript
     index.write("""<script>
