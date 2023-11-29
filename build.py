@@ -196,7 +196,7 @@ with open("index.html", "w+") as index:
             for file in paths[language][category]:
                 index.write(f"<div class='col-12 col-md-6 col-xl-4 box'>")
                 # write link to raw file
-                index.write(f"<p><a href='{language}/{category}/{file}' name='{file.replace('.', '-')}'>{file}</a></p>")
+                index.write(f"<p>[<a href='https://github.com/mxsjoberg/code/blob/master/{language}/{category}/{file}' name='{file.replace('.', '-')}'>{file}</a>]</p>")
                 # write content in file
                 file_content = open(f"{language}/{category}/{file}").read()
                 file_content_as_markdown = f"```{FORMAT_MAP[file.split('.')[1]]}\n{file_content}\n```\n" # escape special characters
