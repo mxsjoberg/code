@@ -1,0 +1,5 @@
+Markdown==3.5
+beautifulsoup4==4.12.2
+Pygments==2.16.1
+libsass==0.22.0
+natsort==8.4.0
