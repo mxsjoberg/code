@@ -1,3 +1,5 @@
+# Usage: pip install -r requirements.txt; python3 build.py (cloudflare pages)
+
 # build script
 import os
 import re
@@ -77,37 +79,33 @@ with open("index.html", "w+") as index:
             font-family: "Fira Mono"; src: local("Fira Mono Bold"), url("__fonts/FiraMono-Bold.ttf");
             font-weight: bold; font-style: normal;
         }
-        ::-webkit-scrollbar { width: 12px; }
-        ::-webkit-scrollbar-track { background: #49595c; }
-        ::-webkit-scrollbar-thumb { background: #a8ced0; }
-        ::-webkit-scrollbar-thumb:hover { background: #eea8cb; }
-        body { font-size: 16px; font-family: "Fira Mono", monospace; background: #0d1117; color: white; }
+        body { font-size: 16px; font-family: "Fira Mono", monospace; }
         h1 { margin: 0.5rem, 0; }
         h1 a:first-child { margin-left: 1rem; }
         h2 { margin: 0.5rem, 0; }
         p { margin: 0; }
         .row .wrapper { padding: 0.5rem 0; }
         .row .wrapper p { margin-left: 1rem; }
-        a { display: inline-block; cursor: pointer; color: white; margin-right: 1rem; text-underline-position: from-font; }
-        a.dotted { color: #a8ced0; text-decoration-style: dotted; }
-        a.dotted:hover { color: #eea8cb; text-decoration-style: solid; }
-        pre { background: #161b22; color: #a8ced0; border: 2px solid #49595c; border-radius: 0.5rem; font-size: 12px; padding: 0.5rem; white-space: break-spaces; line-break: anywhere; margin: 0; height: 320px; scroll: none; }
+        a { display: inline-block; cursor: pointer; margin-right: 1rem; text-underline-position: from-font; }
+        a.dotted { text-decoration-style: dotted; }
+        a.dotted:hover { color: #ff1f8f; text-decoration-style: solid; }
+        pre { border: 2px solid black; border-radius: 0rem; font-size: 12px; padding: 0.5rem; white-space: break-spaces; line-break: anywhere; margin: 0; scroll: none; }
         pre::-webkit-scrollbar { width: 0; }
-        hr { margin: 4px 0 !important; opacity: 1; border-color: #49595c; border-width: 2px; }
-        hr.muted { margin: 4px 0 !important; opacity: 1; border-color: #3f4c52; border-width: 1px; }
+        hr { margin: 4px 0 !important; opacity: 1; border-color: black; border-width: 2px; }
+        hr.muted { margin: 4px 0 !important; opacity: 1; border-color: #b4b4b4; border-width: 1px; }
         .wrapper { margin: 0 -4px; padding-bottom: 4px; }
         .wrapper .box { padding: 0 4px; }
         .float-right { float: right; }
-        div.box.focus pre { border: 2px solid #eea8cb; }
+        div.box.focus pre { border: 2px solid #ff1f8f; }
         /* code highlight */
-        .highlight .k { color: #eea8cb !important; }
-        .highlight .n { color: white !important; }
-        .highlight .kn { color: white !important; }
-        .highlight .s1, .highlight .si { color: navajowhite !important; }
-        .highlight .c1, .highlight .cm { color: #3f4c52 !important; }
-        .highlight .mi { color: white !important; }
+        .highlight .k { color: #ff1f8f !important; }
+        .highlight .n { color: black !important; }
+        .highlight .kn { color: black !important; }
+        .highlight .s1, .highlight .si { color: #ff9800 !important; }
+        .highlight .c1, .highlight .cm { color: #b4b4b4 !important; }
+        .highlight .mi { color: black !important; }
         .highlight .nf, .highlight .nb { font-weight: bold; }
-        .highlight .nc { color: white !important; font-weight: bold; }
+        .highlight .nc { color: black !important; font-weight: bold; }
     </style>""")
     # javascript
     index.write("""<script>
@@ -147,7 +145,7 @@ with open("index.html", "w+") as index:
     index.write("</div>") # row
     # collapse index with all languages, categories, and files
     index.write("<div class='row'>")
-    index.write("<div class='col'>")
+    index.write("<div class='col' style='column-count:4;'>")
     index.write("<div class='collapse' id='collapseIndex'>")
     for language in paths.keys():
         for category in paths[language].keys():
@@ -155,7 +153,7 @@ with open("index.html", "w+") as index:
             index.write(f"{language}")
             index.write(f"<a class='dotted' style='margin-left:12px;' href='#{language}-{category}'>{category}</a><br>")
             for file in paths[language][category]:
-                index.write(f"<a class='dotted' href='#{file.replace('.', '-')}'>{file}</a>")
+                index.write(f"<a class='dotted' href='#{file.replace('.', '-')}'>{file}</a><br>")
             index.write("<br>")
     index.write("</div>") # collapse
     index.write("</div>") # col
@@ -194,9 +192,11 @@ with open("index.html", "w+") as index:
             index.write("<div class='row wrapper'>")
             # for each file in category
             for file in paths[language][category]:
-                index.write(f"<div class='col-12 col-md-6 col-xl-4 box'>")
+                # index.write(f"<div class='col-12 col-md-6 col-xl-4 box'>")
+                index.write(f"<div class='col-12 box'>")
                 # write link to raw file
-                index.write(f"<p>[<a href='https://github.com/mxsjoberg/code/blob/master/{language}/{category}/{file}' name='{file.replace('.', '-')}' class='m-0'>{file}</a>]</p>")
+                index.write(f"<a class='dotted' href='#{file.replace('.', '-')}'>{file}</a>")
+                index.write(f"[<a href='https://github.com/mxsjoberg/code/blob/master/{language}/{category}/{file}' name='{file.replace('.', '-')}' class='m-0'>github</a>]")
                 # write content in file
                 file_content = open(f"{language}/{category}/{file}").read()
                 file_content_as_markdown = f"```{FORMAT_MAP[file.split('.')[1]]}\n{file_content}\n```\n" # escape special characters
